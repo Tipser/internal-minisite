@@ -6,7 +6,7 @@ import Footer from '../footer';
 import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
 
-const CONTENTFUL_PAGE_ID = '66xk8jQDYIxDCArBNQgUD8'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6
+const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const DN_POS_ID = '5ec2a394ff865d0001b7e06e';
 const POS_ID_DIMENSION = 'dimension1';
 
