@@ -1,0 +1,134 @@
+$headline-font: "'Playfair Display', Georgia, serif";
+$body-font: 'Helvetica Neue', GuardianSans, Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial,
+  sans-serif;
+
+body {
+  margin: 0;
+  color: #222;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  font-family: $body-font;
+
+  @media only screen and (min-width: 1001px) {
+    font-size: 18px;
+  }
+}
+
+.site-body,
+.site-header {
+  max-width: 1340px;
+  width: 100%;
+}
+
+.site-body {
+}
+
+h1,
+h2,
+h3 {
+  font-family: $headline-font;
+  font-weight: 900;
+}
+
+.te-product-basic-info {
+  font-family: $headline-font;
+}
+
+.te-article {
+  p {
+    font-size: 1em;
+    line-height: 1.44444;
+  }
+
+  ul {
+    padding-inline-start: 1.5em;
+
+    li {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.te-columns {
+  .te-article {
+    p {
+      font-size: 1em;
+    }
+
+    .te-article-content-container {
+      align-items: initial;
+      align-content: center;
+    }
+  }
+}
+
+.te-page {
+  .te-hero-component {
+    width: 100%;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.te-site {
+  max-width: 1340px;
+  margin: auto;
+
+  @media only screen and (min-width: 1341px) {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+
+  header,
+  footer {
+    margin: 0 auto;
+  }
+}
+
+.te-product-details {
+  font-size: 19px;
+  .te-dropdown-container {
+    .te-dropdown-select {
+      border-radius: 4px;
+    }
+  }
+}
+
+.te-button-default {
+  .te-button-body {
+    border-radius: 4px;
+  }
+  .te-button-text {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+}
+
+//@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
+  div > .te-added-to-cart {
+    top: -400px;
+    left: 5px;
+    right: 5px;
+    margin: 0 auto;
+    width: calc(100% - 4em);
+    bottom: initial;
+    animation-name: slide-top;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* Standard syntax */
+@keyframes slide-top {
+  from {
+    transform: translatey(0);
+  }
+  to {
+    transform: translatey(410px);
+  }
+}

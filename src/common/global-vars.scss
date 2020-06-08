@@ -1,0 +1,119 @@
+// Tipser colors to be used in parameters
+//***************************************************************
+
+// Browns
+$sand: #dfd5b9; // e.g. inactive buy button, and variant
+$camel: #b8a056; // special purpose buttons, e.g. login, and buy
+$almond: #997d3e; // special purpose button when selected variant
+
+// Greens
+$mint: #aebfad;
+$frog: #668f67;
+
+// Reds
+$blush: #e5747b; // warning messages, heart icons
+$heart: #cd5550;
+
+$trump: #faa732;
+
+// Blues
+$leadblue: #535865;
+$linkblue: #3c78c8;
+$linkover: #558cd5;
+$color-dusk: #437a94;
+
+//Greys
+$inverse: #ffffff; // white
+$clouds: #f5f5f5; // Super light gray, for backgrounds
+$rain: #ebebeb; // light gray, for backgrounds
+$granit: #dddddd; // e.g. inactive buttons
+$elephant: #c0c0c0;
+$silver: #bdc3c7;
+$charcoal: #525860;
+$thunder: #262626;
+$darkness: #0d0d0d;
+
+// Not used
+$concrete: #95a5a6;
+$asbestos: #7f8c8d;
+
+// Specific use of colors
+$divider-color: #b1b1b1;
+$divider-space: 10px;
+
+// UI Kit related variables, to be used across the project
+//***************************************************************
+
+$global-color: $thunder;
+$global-muted-color: #999;
+$global-text-shadow: $clouds;
+
+$global-link-color: #07d;
+$global-link-hover-color: #059;
+
+$global-contrast-color: $inverse;
+$global-contrast-text-shadow: rgba(0, 0, 0, 0.1);
+
+$global-font-size: 14px;
+$global-line-height: 20px;
+
+//
+// Backgrounds & Borders
+//
+
+$global-background: #fff;
+$global-border: #ddd;
+
+$global-border-radius: 1px;
+
+$global-default-background: #f5f5f5;
+$global-default-hover-background: $clouds;
+$global-default-active-background: #eee;
+
+$global-primary-background: #00a8e6;
+$global-success-background: $mint;
+$global-warning-background: $trump;
+$global-danger-background: $blush;
+
+$tipser-color-sacred: $camel;
+$tipser-color-success: $frog;
+$tipser-color-success-muted: $mint;
+$tipser-color-warning: $trump;
+$tipser-color-danger: #cb5653;
+$tipser-color-loading: #aaa;
+$link-active-underline: $camel;
+$tipser-color-grey: #efefef;
+
+//Sizes
+// $small-and-less: ~'(max-width: 767px)'; //not part of UI-kit?
+// $small-and-more: ~'(min-width: 768px)'; //not part of UI-kit?
+
+// Interface variables
+// $mini-and-less: ~'(max-width: ${breakpoint-mini-max})'; //max 479px
+// $mini-and-more: ~'(min-width: ${breakpoint-small})'; //from 480px
+
+// $small-and-less: ~'(max-width: ${breakpoint-small-max})'; //max 767px
+// $small-and-more: ~'(min-width: ${breakpoint-medium})'; //from 768px
+
+// $medium-and-less: ~'(max-width: ${breakpoint-medium-max})'; //max 959px
+// $medium-and-more: ~'(min-width: ${breakpoint-large})'; //from 960px
+
+// $large-and-less: ~'(max-width: ${breakpoint-large-max})'; //max 1199px
+// $large-and-more: ~'(min-width: ${breakpoint-xlarge})'; //from 1200px
+
+// $xlarge-and-more: ~'(min-width: 1450px)'; // highest resolution screens
+
+$topbar-height: 70px;
+$topbar-old-site-height: 22px;
+$widget-topbar-height: 70px;
+$topbar-border-height: 1px;
+$mobile-action-panel-height: 200px;
+$mobile-messages-bar-height: 30px;
+$bottom-aligned-overlay-height: 300px;
+$divider-color: #b1b1b1;
+$divider-space: 10px;
+$filter-width: 250px;
+$compact-filter-width: 230px;
+$ios-bottom-bar-height: 68px;
+$body-spacing: 19px;
+$body-spacing-small: 17px; // for mobile

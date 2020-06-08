@@ -1,0 +1,1 @@
+declare module '@tipser/tipser-elements'
