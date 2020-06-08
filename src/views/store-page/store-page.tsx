@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { Store } from '@tipser/tipser-elements';
+import { Store } from '@tipser/tipser-elements/dist/all';
 
 class StorePage extends React.Component<RouteComponentProps<any>> {
   render() {

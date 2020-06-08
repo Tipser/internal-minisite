@@ -1,6 +1,6 @@
 import * as React from 'react';
 // eslint-disable-next-line
-import { Cart, TipserElement } from '@tipser/tipser-elements';
+import { Cart, TipserElement } from '@tipser/tipser-elements/dist/all';
 import logo from '../../assets/images/logo.svg';
 import './header.scss';
 

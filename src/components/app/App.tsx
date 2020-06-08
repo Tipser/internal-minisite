@@ -1,20 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps, withRouter } from 'react-router-dom';
-import { TipserElementsProvider, Page, PageBySlug, Cart } from '@tipser/tipser-elements';
+import { TipserElementsProvider, Page, PageBySlug, Cart } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
 
 const CONTENTFUL_PAGE_ID = '66xk8jQDYIxDCArBNQgUD8'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6
-const DN_POS_ID = '5e6f6a3ee32c210001831a15';
-const SECOND_POS_ID = '5bd1c279b7f6ff000181753f';
+const DN_POS_ID = '5ec2a394ff865d0001b7e06e';
 const POS_ID_DIMENSION = 'dimension1';
 
 declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
-  lang: 'sv',
+  lang: 'sv-SE',
   env: 'prod',
   primaryColor: '#da000d',
   useDefaultErrorHandler: true,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { PageBySlug } from '@tipser/tipser-elements';
+import { PageBySlug } from '@tipser/tipser-elements/dist/all';
 import '../product-detail/product-detail.scss';
 
 export default class CmsPage extends React.Component<RouteComponentProps<any>> {

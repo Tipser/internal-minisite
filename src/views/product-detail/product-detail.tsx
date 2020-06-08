@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 // eslint-disable-next-line
-import { connect } from 'react-refetch';
-import { Product } from '@tipser/tipser-elements';
+import { Product } from '@tipser/tipser-elements/dist/all';
 import './product-detail.scss';
 
 class ProductDetailViewComponent extends React.Component<RouteComponentProps<any>> {
