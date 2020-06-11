@@ -17,7 +17,7 @@ let tipserConfig = {
   env: 'prod',
   primaryColor: '#da000d',
   useDefaultErrorHandler: true,
-  openOldDialog: true,
+  openOldDialog: false,
 };
 
 class RouteWithGA<T> extends Route<T & RouteProps> {
