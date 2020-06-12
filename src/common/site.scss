@@ -19,7 +19,6 @@ body {
 
 .site-body,
 .site-header {
-  max-width: 1340px;
   width: 100%;
 }
 
@@ -67,22 +66,19 @@ h3 {
 
 .te-page {
   .te-hero-component {
+    margin-top: 50px;
     width: 100%;
   }
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  .te-link {
+    .te-product.te-product-full {
+      max-width: 1000px;
+    }
+  }
 }
 
 .te-site {
-  max-width: 1340px;
   margin: auto;
-
-  @media only screen and (min-width: 1341px) {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-  }
 
   header,
   footer {
