@@ -1,7 +1,4 @@
 @import '~@tipser/tipser-elements/dist/all.css';
-$headline-font: "'Playfair Display', Georgia, serif";
-$body-font: 'Helvetica Neue', GuardianSans, Segoe UI, Trebuchet MS, Dejavu Sans, Helvetica Neue, Helvetica, Arial,
-  sans-serif;
 
 body {
   margin: 0;
@@ -10,10 +7,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  font-family: $body-font;
 
-  @media only screen and (min-width: 1001px) {
+  h1,
+  h2,
+  h3 {
+    font-weight: 400;
+    color: #444;
+  }
+
+  h1 {
+    margin: 0 0 15px;
+    font-size: 36px;
+    line-height: 42px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  h3 {
     font-size: 18px;
+    line-height: 24px;
   }
 }
 
@@ -22,18 +35,7 @@ body {
   width: 100%;
 }
 
-.site-body {
-}
-
-h1,
-h2,
-h3 {
-  font-family: $headline-font;
-  font-weight: 900;
-}
-
 .te-product-basic-info {
-  font-family: $headline-font;
 }
 
 .te-article {
