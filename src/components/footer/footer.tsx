@@ -15,11 +15,11 @@ export default class Footer extends React.Component {
         <div className="footer-contact-us">
           <span className="footer-header">Have a question?</span>
           <div className="footer-links">
-            <a href="mailto:support-fi@tipser.com" className="footer-link">
-              support-fi@tipser.com
+            <a href="mailto:support@tipser.com" className="footer-link">
+              support@tipser.com
             </a>
-            <a href="tel:+46 84 103 4460" className="footer-link">
-              Puhelinnumero: +46 8 410 344 60
+            <a href="tel:+46 8 410 344 60" className="footer-link">
+              Telefon: +46 8 410 344 60
             </a>
           </div>
         </div>
@@ -55,12 +55,12 @@ export default class Footer extends React.Component {
           <div className="footer-help footer-column">
             <span className="footer-header">Let us help you</span>
             <span className="footer-link">
-              <a href="/support" target="_blank">
+              <a href="https://tipser.com/support?pageLang=sv" target="_blank">
                 Help
               </a>
             </span>
             <span className="footer-link">
-              <a href="/auth/signup?merchant=true" target="_blank">
+              <a href="https://www.tipser.com/merchants?pageLang=sv" target="_blank">
                 Sign up for a merchant account
               </a>
             </span>
@@ -83,18 +83,18 @@ export default class Footer extends React.Component {
           </div>
           <div className="footer-terms-links">
             <div className="footer-links footer-links-privacy footer-links-inline">
-              <a href="/terms?pageLang=fi-FI" target="_blank" className="footer-link">
+              <a href="https://www.tipser.com/terms?pageLang=sv" target="_blank" className="footer-link">
                 Conditions of Use and Sale
               </a>
-              <a href="/terms/privacy?pageLang=fi-FI" target="_blank" className="footer-link">
+              <a href="https://www.tipser.com/terms-privacy?pageLang=sv" target="_blank" className="footer-link">
                 Privacy notice
               </a>
-              <a href="/terms/cookies?pageLang=fi-FI" target="_blank" className="footer-link">
+              <a href="https://www.tipser.com/terms-cookies?pageLang=sv" target="_blank" className="footer-link">
                 Cookies &amp; Analytics
               </a>
             </div>
           </div>
-          <div className="footer-copyrights">© 2011 - 2019, Tipser AB</div>
+          <div className="footer-copyrights">© 2011 - 2020, Tipser AB</div>
         </div>
       </div>
     );
