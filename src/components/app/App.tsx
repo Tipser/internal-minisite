@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps, withRouter } from 'react-router-dom';
-import { TipserElementsProvider, Page, PageBySlug, Cart } from '@tipser/tipser-elements/dist/all';
+import { TipserElementsProvider, Page, PageBySlug, Checkout } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
 
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
-const DN_POS_ID = '5ec2a394ff865d0001b7e06e';
+const POS_ID = '5ec2a394ff865d0001b7e06e';
 const POS_ID_DIMENSION = 'dimension1';
 
 declare const ga: any; //ga() function coming from analytics.js library
@@ -63,13 +63,13 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <RouteWithTeProvider exact path="/" posId={DN_POS_ID}>
+          <RouteWithTeProvider exact path="/" posId={POS_ID}>
             <Page id={CONTENTFUL_PAGE_ID} />
           </RouteWithTeProvider>
-          {/* <RouteWithTeProvider path="/hlr" posId={SECOND_POS_ID}>
-            <PageBySlug slug="hlr" />
+          <RouteWithTeProvider path="/checkout" posId={POS_ID}>
+            <Checkout />
           </RouteWithTeProvider>
-          <RouteWithTeProvider path="/:slug" posId={DN_POS_ID}>
+          {/* <RouteWithTeProvider path="/:slug" posId={DN_POS_ID}>
             <PageWithSlug />
           </RouteWithTeProvider> */}
         </Switch>
