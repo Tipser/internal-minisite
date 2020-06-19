@@ -69,9 +69,6 @@ class App extends React.Component {
           <RouteWithTeProvider path="/checkout" posId={POS_ID}>
             <Checkout />
           </RouteWithTeProvider>
-          {/* <RouteWithTeProvider path="/:slug" posId={DN_POS_ID}>
-            <PageWithSlug />
-          </RouteWithTeProvider> */}
         </Switch>
       </Router>
     );
