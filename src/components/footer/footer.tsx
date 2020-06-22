@@ -39,13 +39,13 @@ export default class Footer extends React.Component {
             <span className="footer-header">Pay with</span>
             <div className="footer-payments-icons">
               <span className="psp-icon-wrapper">
-                <img className="psp-icon" src={KlarnaLight} alt="klarna icon"/>
+                <img className="psp-icon" src={KlarnaLight} alt="klarna icon" />
               </span>
               <span className="psp-icon-wrapper">
-                <img className="psp-icon" src={VisaLight} alt="Visa icon"/>
+                <img className="psp-icon" src={VisaLight} alt="Visa icon" />
               </span>
               <span className="psp-icon-wrapper">
-                <img className="psp-icon" src={MastercardLight} alt="Mastercard icon"/>
+                <img className="psp-icon" src={MastercardLight} alt="Mastercard icon" />
               </span>
             </div>
           </div>
@@ -65,28 +65,43 @@ export default class Footer extends React.Component {
         </div>
         <div className="footer-terms">
           {/*<div className="footer-logo">*/}
-            {/*<a href="/" className="tipser-logo"></a>*/}
-            {/*<div className="footer-social-medias">*/}
-              {/*<a href="https://twitter.com/wearetipser" target="_blank" className="footer-social-media-icon">*/}
-                {/*<span className="tipser-icon tipser-icon-twitter"></span>*/}
-              {/*</a>*/}
-              {/*<a href="https://www.facebook.com/wearetipser/" target="_blank" className="footer-social-media-icon">*/}
-                {/*<span className="tipser-icon tipser-icon-facebook"></span>*/}
-              {/*</a>*/}
-              {/*<a href="https://www.instagram.com/wearetipser/" target="_blank" className="footer-social-media-icon">*/}
-                {/*<span className="tipser-icon tipser-icon-instagram"></span>*/}
-              {/*</a>*/}
-            {/*</div>*/}
+          {/*<a href="/" className="tipser-logo"></a>*/}
+          {/*<div className="footer-social-medias">*/}
+          {/*<a href="https://twitter.com/wearetipser" target="_blank" className="footer-social-media-icon">*/}
+          {/*<span className="tipser-icon tipser-icon-twitter"></span>*/}
+          {/*</a>*/}
+          {/*<a href="https://www.facebook.com/wearetipser/" target="_blank" className="footer-social-media-icon">*/}
+          {/*<span className="tipser-icon tipser-icon-facebook"></span>*/}
+          {/*</a>*/}
+          {/*<a href="https://www.instagram.com/wearetipser/" target="_blank" className="footer-social-media-icon">*/}
+          {/*<span className="tipser-icon tipser-icon-instagram"></span>*/}
+          {/*</a>*/}
+          {/*</div>*/}
           {/*</div>*/}
           <div className="footer-terms-links">
             <div className="footer-links footer-links-privacy footer-links-inline">
-              <a href="https://www.tipser.com/terms?pageLang=sv" target="_blank" rel="noopener noreferrer" className="footer-link">
+              <a
+                href="https://www.tipser.com/terms?pageLang=sv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
                 Conditions of Use and Sale
               </a>
-              <a href="https://www.tipser.com/terms-privacy?pageLang=sv" target="_blank" rel="noopener noreferrer" className="footer-link">
+              <a
+                href="https://www.tipser.com/terms-privacy?pageLang=sv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
                 Privacy notice
               </a>
-              <a href="https://www.tipser.com/terms-cookies?pageLang=sv" target="_blank" rel="noopener noreferrer" className="footer-link">
+              <a
+                href="https://www.tipser.com/terms-cookies?pageLang=sv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
                 Cookies &amp; Analytics
               </a>
             </div>
