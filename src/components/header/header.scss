@@ -39,7 +39,8 @@
 }
 
 .navigation {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   padding: 0 15px;
 }
 
@@ -57,16 +58,22 @@
   flex-wrap: nowrap;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   font-size: 0.7em;
   overflow-x: auto;
   width: 100%;
   white-space: nowrap;
+
+  &-link {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: #333;
+    padding: 10px 20px;
+  }
 }
 
 .horizontal-item {
   padding: 0;
-  margin-left: auto;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.2em;
@@ -76,6 +83,8 @@
   &.cart {
     .cart-icon {
       width: 30px;
+      display: flex;
+      align-items: center;
 
       .tipser-icon-cart {
         color: black;
