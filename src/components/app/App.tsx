@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, RouteProps, withRouter } from 'react-router-dom';
-import { TipserElementsProvider, Page, PageBySlug, Checkout } from '@tipser/tipser-elements/dist/all';
+import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
+import { TipserElementsProvider, Page, Checkout, TipserEnv, TipserLang } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
@@ -13,8 +13,8 @@ const POS_ID_DIMENSION = 'dimension1';
 declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
-  lang: 'sv-SE',
-  env: 'prod',
+  lang: TipserLang.svSE,
+  env: TipserEnv.prod,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
   openOldDialog: false,
@@ -56,7 +56,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
   }
 }
 
-const PageWithSlug = withRouter((props) => <PageBySlug slug={props.match.params.slug} />);
+// const PageWithSlug = withRouter((props) => <PageBySlug slug={props.match.params.slug} />);
 
 class App extends React.Component {
   render() {

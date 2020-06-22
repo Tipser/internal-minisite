@@ -6,7 +6,6 @@ import './header.scss';
 
 export default class Header extends React.Component {
   render() {
-    const CONTENT_ID = '1CmDHx28vSSzrEuuooTK4N'; //Contentful component: https://app.contentful.com/spaces/i8t5uby4h6ds/entries/1CmDHx28vSSzrEuuooTK4N
 
     return (
       <header className="site-header">
@@ -16,7 +15,7 @@ export default class Header extends React.Component {
         <nav className="navigation th-border">
           <ul className="horizontal-menu">
             <li className="horizontal-item">
-              <a className="link" href="https://dn.se" rel="noopener noreferrer">
+              <a className="link" href="/" rel="noopener noreferrer">
                 <img src={logo} className="te-logo" alt="logo" />
               </a>
             </li>
