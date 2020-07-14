@@ -5,6 +5,9 @@ import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
+import { CheckoutModular } from '../../views/checkout-modular/checkout-modular';
+import { FrenchProduct } from '../../views/french-product/french-product';
+import { CheckoutMultipage } from '../../views/checkout-multi-page/checkout-multipage';
 
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5ec2a394ff865d0001b7e06e';
@@ -14,7 +17,7 @@ declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
   lang: TipserLang.svSE,
-  env: TipserEnv.prod,
+  env: TipserEnv.dev,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
   openOldDialog: false,
@@ -66,8 +69,17 @@ class App extends React.Component {
           <RouteWithTeProvider exact path="/" posId={POS_ID}>
             <Page id={CONTENTFUL_PAGE_ID} />
           </RouteWithTeProvider>
+          <RouteWithTeProvider path="/french-product" posId={POS_ID}>
+            <FrenchProduct />
+          </RouteWithTeProvider>
           <RouteWithTeProvider path="/checkout" posId={POS_ID}>
             <Checkout />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider path="/checkout-modular" posId={POS_ID}>
+            <CheckoutModular />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
+            <CheckoutMultipage />
           </RouteWithTeProvider>
         </Switch>
       </Router>

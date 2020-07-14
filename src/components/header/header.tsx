@@ -18,6 +18,12 @@ export default class Header extends React.Component {
               <a href="/checkout" className="horizontal-menu-link">
                 Go to checkout
               </a>
+              <a href="/checkout-modular" className="horizontal-menu-link">
+                Go to custom checkout
+              </a>
+              <a href="checkout-multipage/step-1" className="horizontal-menu-link">
+                Go to multistep checkout
+              </a>
             </li>
           </ul>
           <span className="horizontal-item cart">
