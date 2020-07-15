@@ -17,7 +17,7 @@ declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
   lang: TipserLang.svSE,
-  env: TipserEnv.dev,
+  env: TipserEnv.prod,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
   openOldDialog: false,
