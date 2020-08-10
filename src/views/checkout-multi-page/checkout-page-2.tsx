@@ -1,7 +1,11 @@
-import React from 'react';
-import { CheckoutPayment } from '@tipser/tipser-elements/dist/all';
+import React, { FC } from 'react';
+import { CheckoutData, CheckoutPayment } from '@tipser/tipser-elements/dist/all';
 
-export const CheckoutPage2 = ({checkoutData}) => <div>
+type Props = {
+  checkout: CheckoutData
+}
+
+export const CheckoutPage2: FC<Props> = ({checkout}) => <div>
   <div>Step 2</div>
-  <CheckoutPayment checkoutData={checkoutData} />
+  <CheckoutPayment {...checkout} />
 </div>;

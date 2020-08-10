@@ -3,11 +3,11 @@ import { CartProducts, CartSummary, Checkout, CheckoutPayment } from '@tipser/ti
 
 export const CheckoutModular = () =>
   <Checkout>
-  {(shoppingCart, checkoutData) => (
+  {(checkout) => (
     <div>
-      <CheckoutPayment checkoutData={checkoutData} />
-      <CartSummary shoppingCart={shoppingCart} />
-      <CartProducts shoppingCart={shoppingCart} />
+      <CheckoutPayment {...checkout} />
+      <CartSummary {...checkout} />
+      <CartProducts {...checkout} />
     </div>
   )}
-  </Checkout>
+  </Checkout>;
