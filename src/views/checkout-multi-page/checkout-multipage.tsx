@@ -3,10 +3,11 @@ import { Checkout, CheckoutData } from '@tipser/tipser-elements/dist/all';
 import { Route, Switch, withRouter } from 'react-router';
 import { CheckoutPage1 } from './checkout-page-1';
 import { CheckoutPage2 } from './checkout-page-2';
+import './checkout-multipage.scss';
 
 export const CheckoutMultipage = withRouter(({ match }) => (
   <div>
-    <div>Checkout multipage</div>
+    <div className="te-multipage-label">Checkout multipage</div>
     <Checkout>
       {(checkout: CheckoutData) => (
         <Switch>
