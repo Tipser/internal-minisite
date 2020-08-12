@@ -5,7 +5,6 @@ import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
-import { CheckoutModular } from '../../views/checkout-modular/checkout-modular';
 import { FrenchProduct } from '../../views/french-product/french-product';
 import { CheckoutMultipage } from '../../views/checkout-multi-page/checkout-multipage';
 
@@ -74,9 +73,6 @@ class App extends React.Component {
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/checkout" posId={POS_ID}>
             <Checkout />
-          </RouteWithTeProvider>
-          <RouteWithTeProvider path="/checkout-modular" posId={POS_ID}>
-            <CheckoutModular />
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
             <CheckoutMultipage />
