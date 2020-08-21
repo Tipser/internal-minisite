@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import {
-  CartProducts,
   CheckoutData,
   CheckoutPayment,
   CustomerAddressBilling,
