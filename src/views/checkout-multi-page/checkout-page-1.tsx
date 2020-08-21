@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { CartProducts, CartPromoCode, CartSummary, CustomerAddressDelivery } from '@tipser/tipser-elements/dist/all';
+import { CartProducts, CartPromoCode, CartSummary } from '@tipser/tipser-elements/dist/all';
 import { Link } from 'react-router-dom';
 import { CheckoutData } from '@tipser/tipser-elements/dist/all';
 import './checkout-multipage.scss';

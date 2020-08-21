@@ -28,7 +28,8 @@ export const CheckoutPage2: FC<Props> = ({ checkout }) => (
       <div className="te-multipage-columns-narrow">
         <p className="te-checkout-heading">Payment</p>
         <div className="te-checkout-container desktop">
-          <CheckoutPayment {...checkout} /></div>
+          <CheckoutPayment {...checkout} />
+        </div>
       </div>
     </div>
   </div>
