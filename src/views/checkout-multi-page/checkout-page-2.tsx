@@ -1,5 +1,11 @@
 import React, { FC } from 'react';
-import { CheckoutData, CheckoutPayment } from '@tipser/tipser-elements/dist/all';
+import {
+  CartProducts,
+  CheckoutData,
+  CheckoutPayment,
+  CustomerAddressBilling,
+  CustomerAddressDelivery,
+} from '@tipser/tipser-elements/dist/all';
 
 type Props = {
   checkout: CheckoutData;
@@ -7,7 +13,24 @@ type Props = {
 
 export const CheckoutPage2: FC<Props> = ({ checkout }) => (
   <div>
-    <div className="te-multipage-label-step">Step 2</div>
-    <CheckoutPayment {...checkout} />
+    <div className="progress-bar">
+      <span className="step-2">
+        <p>Delivery</p>
+      </span>
+    </div>
+    <h2 className="te-multipage-label-step">Delivery & Payment</h2>
+    <div className="te-multipage-columns">
+      <div className="te-multipage-columns-wide">
+        <p className="te-checkout-heading">Delivery Address</p>
+        <CustomerAddressDelivery {...checkout} />
+        <p className="te-checkout-heading">Billing Address</p>
+        <CustomerAddressBilling {...checkout} />
+      </div>
+      <div className="te-multipage-columns-narrow">
+        <p className="te-checkout-heading">Payment</p>
+        <div className="te-checkout-container desktop">
+          <CheckoutPayment {...checkout} /></div>
+      </div>
+    </div>
   </div>
 );

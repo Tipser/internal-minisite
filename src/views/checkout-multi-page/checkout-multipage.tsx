@@ -6,8 +6,7 @@ import { CheckoutPage2 } from './checkout-page-2';
 import './checkout-multipage.scss';
 
 export const CheckoutMultipage = withRouter(({ match }) => (
-  <div>
-    <div className="te-multipage-label">Checkout multipage</div>
+  <div className="te-multipage-wrapper">
     <Checkout>
       {(checkout: CheckoutData) => (
         <Switch>
