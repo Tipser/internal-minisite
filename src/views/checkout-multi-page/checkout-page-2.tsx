@@ -21,7 +21,7 @@ export const CheckoutPage2: FC<Props> = ({ checkout }) => (
     <div className="te-multipage-columns">
       <div className="te-multipage-columns-wide">
         <p className="te-checkout-heading">Delivery Address</p>
-        <CustomerAddressDelivery {...checkout} />
+        <CustomerAddressDelivery {...checkout} onCheckboxClick={() => null} />
         <p className="te-checkout-heading">Billing Address</p>
         <CustomerAddressBilling {...checkout} />
       </div>
