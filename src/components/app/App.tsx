@@ -20,6 +20,7 @@ let tipserConfig = {
   primaryColor: '#222',
   useDefaultErrorHandler: true,
   openOldDialog: false,
+  openOldCheckout: false,
   addToCartSettings: {
     directToCheckoutMode: true,
   },
