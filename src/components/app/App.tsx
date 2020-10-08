@@ -9,7 +9,7 @@ import { FrenchProduct } from '../../views/french-product/french-product';
 import { CheckoutMultipage } from '../../views/checkout-multi-page/checkout-multipage';
 
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
-const POS_ID = '5f3d1c7144df260001fb66cc';
+const POS_ID = '5f738fdd023072000132ae3b';
 const POS_ID_DIMENSION = 'dimension1';
 
 declare const ga: any; //ga() function coming from analytics.js library
