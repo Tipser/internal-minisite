@@ -22,7 +22,7 @@ let tipserConfig = {
   openOldDialog: false,
   openOldCheckout: false,
   addToCartSettings: {
-    directToCheckoutMode: false,
+    directToCheckoutMode: true,
   },
 };
 
