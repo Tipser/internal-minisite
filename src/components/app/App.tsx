@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
-import { TipserElementsProvider, Page, Checkout, TipserEnv, TipserLang } from '@tipser/tipser-elements/dist/all';
+import { TipserElementsProvider, Page, Checkout, TipserEnv } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
@@ -14,8 +14,7 @@ const POS_ID_DIMENSION = 'dimension1';
 declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
-  lang: 'en-US',
-  // lang: window.location.search.split("=")[1],
+  lang: window.location.search.split("=")[1] ? window.location.search.split("=")[1]:'sv-SE',
   env: TipserEnv.stage,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
@@ -29,7 +28,6 @@ let tipserConfig = {
 class RouteWithGA<T> extends Route<T & RouteProps> {
   componentDidMount() {
     ga('send', 'pageview');
-    // console.log(this.props.location.pathname)
   }
 
   componentDidUpdate(prevProps: RouteProps) {
@@ -44,40 +42,22 @@ class RouteWithGA<T> extends Route<T & RouteProps> {
 }
 
 class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
-  state={
-    qs:''
-  }
+
 
   componentDidMount() {
     ga('set', POS_ID_DIMENSION, this.props.posId);
     super.componentDidMount();
-
-    // var queryParams = new URLSearchParams(window.location.search);
-    // // queryParams.set("lang", "fr-FR");
-    // // eslint-disable-next-line no-restricted-globals
-    // history.replaceState(null, '', "?"+queryParams.toString());
-    // this.setState({
-    //   qs:window.location.search
-    // })
-    // const lang = window.location.search.split("=")
-    // console.log(window.location.search.split("="))
-    // tipserConfig.lang="sv-SE"
   }
 
-componentDidUpdate(){
-  // if(window.location.search!==this.state.qs){
-  //   console.log('%c%s', 'color: #00e600', "mamy zmiane w did update");
-  // }
-}
+
 
 onLangChange=(lang)=>{
-  // console.log('%c%s', 'color: #00e600', "on lang change");
-  // var queryParams = new URLSearchParams(window.location.search);
-  // queryParams.set("lang", lang);
-  // // eslint-disable-next-line no-restricted-globals
-  // history.replaceState(null, '', "?"+queryParams.toString());
-  // // eslint-disable-next-line no-restricted-globals
-  // location.reload();
+  const queryParams = new URLSearchParams(window.location.search);
+  queryParams.set("lang", lang);
+  // eslint-disable-next-line no-restricted-globals
+  history.replaceState(null, '', "?"+queryParams.toString());
+  // eslint-disable-next-line no-restricted-globals
+  location.reload();
 }
 
   render() {
