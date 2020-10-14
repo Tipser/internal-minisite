@@ -7,7 +7,6 @@ import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
 import { FrenchProduct } from '../../views/french-product/french-product';
 import { CheckoutMultipage } from '../../views/checkout-multi-page/checkout-multipage';
-
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5f738fdd023072000132ae3b';
 const POS_ID_DIMENSION = 'dimension1';
@@ -15,7 +14,8 @@ const POS_ID_DIMENSION = 'dimension1';
 declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
-  lang: TipserLang.enUS,
+  lang: 'en-US',
+  // lang: window.location.search.split("=")[1],
   env: TipserEnv.stage,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
@@ -29,6 +29,7 @@ let tipserConfig = {
 class RouteWithGA<T> extends Route<T & RouteProps> {
   componentDidMount() {
     ga('send', 'pageview');
+    // console.log(this.props.location.pathname)
   }
 
   componentDidUpdate(prevProps: RouteProps) {
@@ -43,17 +44,51 @@ class RouteWithGA<T> extends Route<T & RouteProps> {
 }
 
 class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
+  state={
+    qs:''
+  }
+
   componentDidMount() {
     ga('set', POS_ID_DIMENSION, this.props.posId);
     super.componentDidMount();
+
+    // var queryParams = new URLSearchParams(window.location.search);
+    // // queryParams.set("lang", "fr-FR");
+    // // eslint-disable-next-line no-restricted-globals
+    // history.replaceState(null, '', "?"+queryParams.toString());
+    // this.setState({
+    //   qs:window.location.search
+    // })
+    // const lang = window.location.search.split("=")
+    // console.log(window.location.search.split("="))
+    // tipserConfig.lang="sv-SE"
   }
+
+componentDidUpdate(){
+  // if(window.location.search!==this.state.qs){
+  //   console.log('%c%s', 'color: #00e600', "mamy zmiane w did update");
+  // }
+}
+
+onLangChange=(lang)=>{
+  // console.log('%c%s', 'color: #00e600', "on lang change");
+  // var queryParams = new URLSearchParams(window.location.search);
+  // queryParams.set("lang", lang);
+  // // eslint-disable-next-line no-restricted-globals
+  // history.replaceState(null, '', "?"+queryParams.toString());
+  // // eslint-disable-next-line no-restricted-globals
+  // location.reload();
+}
 
   render() {
     const { children, posId } = this.props;
     return (
+  // @ts-ignore
+
       <TipserElementsProvider posId={posId} config={tipserConfig} isSentryEnabled={true}>
         <div className="te-site">
-          <Header />
+
+          <Header onLangChange={this.onLangChange}/>
           <div className="site-body">{children}</div>
           <Footer />
         </div>
