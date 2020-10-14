@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
-import { TipserElementsProvider, Page, Checkout, TipserEnv, TipserLang } from '@tipser/tipser-elements/dist/all';
+import {
+  TipserElementsProvider,
+  Page,
+  Checkout,
+  TipserEnv,
+  TipserLang,
+  TipserContext,
+} from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
@@ -16,7 +23,7 @@ declare const ga: any; //ga() function coming from analytics.js library
 
 let tipserConfig = {
   lang: TipserLang.enUS,
-  env: TipserEnv.stage,
+  env: TipserEnv.localhost,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
   openOldDialog: false,
@@ -42,6 +49,18 @@ class RouteWithGA<T> extends Route<T & RouteProps> {
   }
 }
 
+let i = 0;
+
+const X: FC = ({ children }) => {
+  const context = useContext(TipserContext);
+  useEffect(() => {
+    const sdk = context.data.tipserSdk;
+    const setPosData = () => sdk!.setPosData({ twoja_stara: { i: i++ } });
+    setInterval(setPosData, 2000);
+  }, []);
+  return (<>{children}</>);
+};
+
 class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
   componentDidMount() {
     ga('set', POS_ID_DIMENSION, this.props.posId);
@@ -52,11 +71,13 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
     const { children, posId } = this.props;
     return (
       <TipserElementsProvider posId={posId} config={tipserConfig} isSentryEnabled={true}>
-        <div className="te-site">
-          <Header />
-          <div className="site-body">{children}</div>
-          <Footer />
-        </div>
+        <X>
+          <div className="te-site">
+            <Header />
+            <div className="site-body">{children}</div>
+            <Footer />
+          </div>
+        </X>
       </TipserElementsProvider>
     );
   }
@@ -64,27 +85,24 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
 
 // const PageWithSlug = withRouter((props) => <PageBySlug slug={props.match.params.slug} />);
 
-class App extends React.Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <RouteWithTeProvider exact path="/" posId={POS_ID}>
-            <Page id={CONTENTFUL_PAGE_ID} />
-          </RouteWithTeProvider>
-          <RouteWithTeProvider path="/french-product" posId={POS_ID}>
-            <FrenchProduct />
-          </RouteWithTeProvider>
-          <RouteWithTeProvider path="/checkout" posId={POS_ID}>
-            <Checkout />
-          </RouteWithTeProvider>
-          <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
-            <CheckoutMultipage />
-          </RouteWithTeProvider>
-        </Switch>
-      </Router>
-    );
-  }
-}
-
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <RouteWithTeProvider exact path="/" posId={POS_ID}>
+          <Page id={CONTENTFUL_PAGE_ID} />
+        </RouteWithTeProvider>
+        <RouteWithTeProvider path="/french-product" posId={POS_ID}>
+          <FrenchProduct />
+        </RouteWithTeProvider>
+        <RouteWithTeProvider path="/checkout" posId={POS_ID}>
+          <Checkout />
+        </RouteWithTeProvider>
+        <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
+          <CheckoutMultipage />
+        </RouteWithTeProvider>
+      </Switch>
+    </Router>
+  );
+};
 export default App;
