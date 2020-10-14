@@ -12,10 +12,10 @@ return(
     <Checkout>
       {(checkout: CheckoutData) => (
         <Switch>
-          <Route path={`${match &&match.url}/step-1`}>
+          <Route path={`${match.url}/step-1`}>
             <CheckoutPage1 checkout={checkout} />
           </Route>
-          <Route path={`${match&&match.url}/step-2`}>
+          <Route path={`${match.url}/step-2`}>
             <CheckoutPage2 checkout={checkout} />
           </Route>
         </Switch>
