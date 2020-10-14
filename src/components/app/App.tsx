@@ -13,8 +13,10 @@ const POS_ID_DIMENSION = 'dimension1';
 
 declare const ga: any; //ga() function coming from analytics.js library
 
+let qs = window.location.search.split("=")[1] 
+
 let tipserConfig = {
-  lang: window.location.search.split("=")[1] ? window.location.search.split("=")[1]:'sv-SE',
+  lang: qs ? qs:'sv-SE',
   env: TipserEnv.stage,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
