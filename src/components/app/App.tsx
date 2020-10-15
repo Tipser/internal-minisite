@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
-import { TipserElementsProvider, Page, Checkout, TipserEnv } from '@tipser/tipser-elements/dist/all';
+import { TipserElementsProvider, Page, Checkout, TipserEnv,TipserLang } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
@@ -13,10 +13,21 @@ const POS_ID_DIMENSION = 'dimension1';
 
 declare const ga: any; //ga() function coming from analytics.js library
 
-let qs = window.location.search.split("=")[1] 
-
+const qs = window.location.search
+  .replace(/^\?/, "") 
+  .split('&') 
+  .map(param => param.split("="))
+  .filter(([key]) => key === 'lang')
+  .map(([_, value]) => value)[0] 
+  
+  function asTipserLang(lang: string): TipserLang {
+    if (Object.values(TipserLang).includes(lang as TipserLang)) {
+      return lang as TipserLang;
+    }
+   return TipserLang.svSE;
+  }
 let tipserConfig = {
-  lang: qs ? qs:'sv-SE',
+  lang: asTipserLang(qs),
   env: TipserEnv.stage,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
@@ -65,7 +76,6 @@ onLangChange=(lang)=>{
   render() {
     const { children, posId } = this.props;
     return (
-  // @ts-ignore
 
       <TipserElementsProvider posId={posId} config={tipserConfig} isSentryEnabled={true}>
         <div className="te-site">
