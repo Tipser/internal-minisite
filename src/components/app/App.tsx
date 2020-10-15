@@ -1,21 +1,33 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
-import { TipserElementsProvider, Page, Checkout, TipserEnv, TipserLang } from '@tipser/tipser-elements/dist/all';
+import { TipserElementsProvider, Page, Checkout, TipserEnv,TipserLang } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
 import { FrenchProduct } from '../../views/french-product/french-product';
 import { CheckoutMultipage } from '../../views/checkout-multi-page/checkout-multipage';
-
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5f738fdd023072000132ae3b';
 const POS_ID_DIMENSION = 'dimension1';
 
 declare const ga: any; //ga() function coming from analytics.js library
 
+const qs = window.location.search
+  .replace(/^\?/, "") 
+  .split('&') 
+  .map(param => param.split("="))
+  .filter(([key]) => key === 'lang')
+  .map(([_, value]) => value)[0] 
+  
+  function asTipserLang(lang: string): TipserLang {
+    if (Object.values(TipserLang).includes(lang as TipserLang)) {
+      return lang as TipserLang;
+    }
+   return TipserLang.svSE;
+  }
 let tipserConfig = {
-  lang: TipserLang.enUS,
+  lang: asTipserLang(qs),
   env: TipserEnv.stage,
   primaryColor: '#222',
   useDefaultErrorHandler: true,
@@ -43,17 +55,32 @@ class RouteWithGA<T> extends Route<T & RouteProps> {
 }
 
 class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
+
+
   componentDidMount() {
     ga('set', POS_ID_DIMENSION, this.props.posId);
     super.componentDidMount();
   }
 
+
+
+onLangChange=(lang)=>{
+  const queryParams = new URLSearchParams(window.location.search);
+  queryParams.set("lang", lang);
+  // eslint-disable-next-line no-restricted-globals
+  history.replaceState(null, '', "?"+queryParams.toString());
+  // eslint-disable-next-line no-restricted-globals
+  location.reload();
+}
+
   render() {
     const { children, posId } = this.props;
     return (
+
       <TipserElementsProvider posId={posId} config={tipserConfig} isSentryEnabled={true}>
         <div className="te-site">
-          <Header />
+
+          <Header onLangChange={this.onLangChange}/>
           <div className="site-body">{children}</div>
           <Footer />
         </div>

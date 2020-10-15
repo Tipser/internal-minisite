@@ -5,7 +5,8 @@ import { CheckoutPage1 } from './checkout-page-1';
 import { CheckoutPage2 } from './checkout-page-2';
 import './checkout-multipage.scss';
 
-export const CheckoutMultipage = withRouter(({ match }) => (
+export const CheckoutMultipage = withRouter(({ match }) => {
+return(
   <div className="te-multipage-wrapper">
     <Checkout>
       {(checkout: CheckoutData) => (
@@ -20,4 +21,5 @@ export const CheckoutMultipage = withRouter(({ match }) => (
       )}
     </Checkout>
   </div>
-));
+)
+      });
