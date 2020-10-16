@@ -15,6 +15,10 @@
       }
     }
 
+    .te-collection-extra-large .te-product-card {
+      width: calc(20% - 10px);
+    }
+
     .te-collection-large .te-product-card {
       width: calc(25% - 10px);
     }
@@ -92,12 +96,19 @@
     }
 
     .te-collection-container .te-collection {
+      &.te-collection-extra-large {
+        .te-product-card {
+          width: calc(33% - 10px);
+        }
+      }
+
       &.te-collection-large,
       &.te-collection-small {
         .te-product-card {
           width: calc(50% - 10px);
         }
       }
+
       &.te-collection-xsmall {
         .te-product-card {
           width: 100%;
