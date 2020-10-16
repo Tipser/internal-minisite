@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import {
+  CartSummary,
   CheckoutData,
   CheckoutPayment,
   CustomerAddressBilling,
@@ -26,6 +27,10 @@ export const CheckoutPage2: FC<Props> = ({ checkout }) => (
         <CustomerAddressBilling {...checkout} />
       </div>
       <div className="te-multipage-columns-narrow">
+        <p className="te-checkout-heading">
+          Order Summary <span>({checkout.shoppingCart.items.length})</span>
+        </p>
+        <CartSummary {...checkout} />
         <p className="te-checkout-heading">Payment</p>
         <CheckoutPayment {...checkout} />
       </div>
