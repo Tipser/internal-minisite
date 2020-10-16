@@ -86,7 +86,8 @@
       }
 
       .te-product-card-details {
-        flex-basis: 50%;
+        flex-basis: calc(50% - 5px);
+        margin-left: 5px;
       }
     }
 
@@ -103,5 +104,12 @@
         }
       }
     }
+  }
+}
+
+.custom-collections {
+  h2 {
+    max-width: 940px;
+    margin: 30px auto;
   }
 }

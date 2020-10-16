@@ -4,7 +4,7 @@ import './custom-collection.scss';
 
 export const CustomCollection = () => {
   return (
-    <div className="te-article">
+    <div className="custom-collections">
       <h2>Collection with defined image container</h2>
       <div className="custom-collection-base">
         <Collection collectionId="5f675d6a05c9dc00013bfb48" />
