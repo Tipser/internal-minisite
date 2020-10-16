@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collection } from '@tipser/tipser-elements/dist/all';
+import { Collection, Store } from '@tipser/tipser-elements/dist/all';
 import './custom-collection.scss';
 
 export const CustomCollection = () => {
@@ -20,6 +20,10 @@ export const CustomCollection = () => {
       <h2>Collection with horizontal orientation</h2>
       <div className="custom-collection-columns">
         <Collection collectionId="5f675d6a05c9dc00013bfb48" />
+      </div>
+      <h2>Store</h2>
+      <div className="custom-collection-shadowed">
+        <Store posId="59e86b79b8f3f60a94ecd26a" />
       </div>
     </div>
   );
