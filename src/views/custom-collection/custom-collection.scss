@@ -50,8 +50,12 @@
   &-shadowed {
     .te-product-card {
       position: relative;
+      background-color: rgba(#000, 0.05);
+    }
+    .te-product-card-img {
+      background-color: #fff;
 
-      &:after {
+      &:before {
         background: #000;
         bottom: 0px;
         content: '';
@@ -95,9 +99,10 @@
   }
 
   &-columns {
-    .te-product-card {
-      display: flex;
-      &:after {
+    .te-product-card-img {
+      background-color: #fff;
+
+      &:before {
         background: #000;
         bottom: 0px;
         content: '';
@@ -107,6 +112,10 @@
         right: 0px;
         top: 0px;
       }
+    }
+    .te-product-card {
+      display: flex;
+      background-color: rgba(#000, 0.05);
 
       .te-img.object-fit.object-fit-auto.img-loaded.te-product-card-img {
         flex-basis: 50%;
