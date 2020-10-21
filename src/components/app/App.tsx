@@ -1,6 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
-import { TipserElementsProvider, Page, Checkout, TipserEnv, TipserLang } from '@tipser/tipser-elements/dist/all';
+import {
+  TipserElementsProvider,
+  Page,
+  Checkout,
+  TipserEnv,
+  TipserLang,
+  ProductContext,
+} from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
 import { CustomCollection } from '../../views/custom-collection/custom-collection';
@@ -94,6 +101,16 @@ class App extends React.Component {
           <RouteWithTeProvider exact path="/" posId={POS_ID}>
             <Page id={CONTENTFUL_PAGE_ID} />
             <CustomCollection />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider path="/modular-product-default" posId={POS_ID}>
+            <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+              <ProductContext productId="5c751cf82d3f3b0001bcec8c" />
+            </div>
+          </RouteWithTeProvider>
+          <RouteWithTeProvider path="/modular-product" posId={POS_ID}>
+            <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+              <ProductContext productId="5c751cf82d3f3b0001bcec8c"></ProductContext>
+            </div>
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/french-product" posId={POS_ID}>
             <FrenchProduct />
