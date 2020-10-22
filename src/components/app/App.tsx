@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, RouteProps } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, RouteProps, withRouter } from 'react-router-dom';
 
 import {
   TipserElementsProvider,
@@ -21,6 +21,9 @@ import './App.scss';
 import '@tipser/tipser-elements/dist/index.css';
 import { FrenchProduct } from '../../views/french-product/french-product';
 import { CheckoutMultipage } from '../../views/checkout-multi-page/checkout-multipage';
+import { EmbeddedProductDemo } from '../../views/embedded-product';
+import { TipserElementsConfig } from '@tipser/tipser-elements/dist/config';
+
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5f738fdd023072000132ae3b';
 const POS_ID_DIMENSION = 'dimension1';
@@ -39,6 +42,7 @@ function asTipserLang(lang: string): TipserLang {
   }
   return TipserLang.svSE;
 }
+
 let tipserConfig = {
   lang: asTipserLang(qs),
   env: TipserEnv.stage,
@@ -50,6 +54,10 @@ let tipserConfig = {
     directToCheckoutMode: false,
   },
 };
+
+const RouterHistory = withRouter(({ children, history }: any) => {
+  return children(history);
+});
 
 class RouteWithGA<T> extends Route<T & RouteProps> {
   componentDidMount() {
@@ -67,7 +75,7 @@ class RouteWithGA<T> extends Route<T & RouteProps> {
   }
 }
 
-class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
+class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: Partial<TipserElementsConfig> }> {
   componentDidMount() {
     ga('set', POS_ID_DIMENSION, this.props.posId);
     super.componentDidMount();
@@ -84,14 +92,26 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string }> {
 
   render() {
     const { children, posId } = this.props;
+    const overrideConfig = this.props.overrideConfig || {};
     return (
-      <TipserElementsProvider posId={posId} config={tipserConfig} isSentryEnabled={true}>
-        <div className="te-site">
-          <Header onLangChange={this.onLangChange} />
-          <div className="site-body">{children}</div>
-          <Footer />
-        </div>
-      </TipserElementsProvider>
+      <RouterHistory>
+        {(history) => {
+          return (
+            <TipserElementsProvider
+              posId={posId}
+              config={{ ...tipserConfig, ...overrideConfig }}
+              isSentryEnabled={true}
+              history={history}
+            >
+              <div className="te-site">
+                <Header onLangChange={this.onLangChange} />
+                <div className="site-body">{children}</div>
+                <Footer />
+              </div>
+            </TipserElementsProvider>
+          );
+        }}
+      </RouterHistory>
     );
   }
 }
@@ -135,6 +155,13 @@ class App extends React.Component {
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
             <CheckoutMultipage />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider
+            path="/embedded-product/:productId"
+            posId={POS_ID}
+            overrideConfig={{ customUrls: { productBaseUrl: '/embedded-product/' } }}
+          >
+            <EmbeddedProductDemo />
           </RouteWithTeProvider>
         </Switch>
       </Router>
