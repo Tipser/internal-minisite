@@ -55,6 +55,7 @@ let tipserConfig = {
   },
   customUrls: {
     checkoutConfirmationUrl: '/checkout-confirmation',
+    // productBaseUrl: '/modular-product-default',
   },
 };
 
@@ -99,8 +100,9 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
     return (
       <RouterHistory>
         {(history) => {
+          const Provider = TipserElementsProvider as any;
           return (
-            <TipserElementsProvider
+            <Provider
               posId={posId}
               config={{ ...tipserConfig, ...overrideConfig } as any}
               isSentryEnabled={true}
@@ -111,7 +113,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
                 <div className="site-body">{children}</div>
                 <Footer />
               </div>
-            </TipserElementsProvider>
+            </Provider>
           );
         }}
       </RouterHistory>
@@ -131,11 +133,20 @@ class App extends React.Component {
             <CustomCollection />
             <ModularProducts />
           </RouteWithTeProvider>
-          <RouteWithTeProvider path="/modular-product-default" posId={POS_ID}>
+
+          <RouteWithTeProvider path="/modular-product-default/:productId" posId={POS_ID}>
+            <EmbeddedProductDemo />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider
+            path="/modular-product-default"
+            posId={POS_ID}
+            overrideConfig={{ customUrls: { productBaseUrl: '/modular-product-default' } } as any}
+          >
             <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
               <ProductContext productId="5c751cf82d3f3b0001bcec8c" />
             </div>
           </RouteWithTeProvider>
+
           <RouteWithTeProvider path="/modular-product" posId={POS_ID}>
             <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
               <ProductContext productId="5c751cf82d3f3b0001bcec8c">
