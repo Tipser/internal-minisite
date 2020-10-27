@@ -102,7 +102,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
           return (
             <TipserElementsProvider
               posId={posId}
-              config={{ ...tipserConfig, ...overrideConfig }}
+              config={{ ...tipserConfig, ...overrideConfig } as any}
               isSentryEnabled={true}
               history={history}
             >
