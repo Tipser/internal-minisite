@@ -165,7 +165,7 @@ class App extends React.Component {
           <RouteWithTeProvider
             path="/embedded-product/:productId"
             posId={POS_ID}
-            overrideConfig={{ customUrls: { productBaseUrl: '/embedded-product/' } }}
+            overrideConfig={{ customUrls: { productBaseUrl: '/embedded-product/' } } as any}
           >
             <EmbeddedProductDemo />
           </RouteWithTeProvider>
