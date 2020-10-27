@@ -53,6 +53,9 @@ let tipserConfig = {
   addToCartSettings: {
     directToCheckoutMode: false,
   },
+  customUrls: {
+    checkoutConfirmationUrl: '/checkout-confirmation',
+  },
 };
 
 const RouterHistory = withRouter(({ children, history }: any) => {
@@ -151,6 +154,9 @@ class App extends React.Component {
             <FrenchProduct />
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/checkout" posId={POS_ID}>
+            <Checkout />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider path="/checkout-confirmation" posId={POS_ID}>
             <Checkout />
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
