@@ -140,7 +140,7 @@ class App extends React.Component {
           <RouteWithTeProvider
             path="/modular-product-default"
             posId={POS_ID}
-            overrideConfig={{ customUrls: { productBaseUrl: '/modular-product-default' } }}
+            overrideConfig={{ customUrls: { productBaseUrl: '/modular-product-default' } } as any}
           >
             <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
               <ProductContext productId="5c751cf82d3f3b0001bcec8c" />
