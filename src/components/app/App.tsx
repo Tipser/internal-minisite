@@ -10,7 +10,7 @@ import {
   ProductContext,
   SimilarProducts,
   StyleWithProducts,
-  ModalDescription,
+  ProductDescription,
   ProductContainer,
 } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
@@ -152,7 +152,7 @@ class App extends React.Component {
               <ProductContext productId="5c751cf82d3f3b0001bcec8c">
                 {(productContext) => (
                   <>
-                    <ModalDescription {...productContext} />
+                    <ProductDescription {...productContext} />
                     <StyleWithProducts {...productContext} />
                     <ProductContainer {...productContext} />
                     <SimilarProducts {...productContext} />
