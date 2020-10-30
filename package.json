@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tipser/tipser-elements": "^2.1.45-dev-f2eb7c8",
+    "@tipser/tipser-elements": "^2.1.45-dev-26b1921",
     "@tipser/tipser-sdk": "^2.2.35",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
