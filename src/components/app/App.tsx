@@ -40,7 +40,7 @@ function asTipserLang(lang: string): TipserLang {
   if (Object.values(TipserLang).includes(lang as TipserLang)) {
     return lang as TipserLang;
   }
-  return TipserLang.svSE;
+  return TipserLang.enGB;
 }
 
 let tipserConfig = {
