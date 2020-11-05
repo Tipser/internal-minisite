@@ -56,7 +56,6 @@ let tipserConfig = {
   customUrls: {
     checkoutUrl: '/checkout',
     checkoutConfirmationUrl: '/checkout-confirmation',
-    productBaseUrl: '/modular-product-default',
   },
 };
 
