@@ -53,10 +53,6 @@ let tipserConfig = {
   addToCartSettings: {
     directToCheckoutMode: false,
   },
-  customUrls: {
-    checkoutUrl: '/checkout',
-    checkoutConfirmationUrl: '/checkout-confirmation',
-  },
 };
 
 const RouterHistory = withRouter(({ children, history }: any) => {
