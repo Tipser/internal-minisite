@@ -27,7 +27,7 @@ import { TipserElementsConfig } from '@tipser/tipser-elements/dist/config';
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5f738fdd023072000132ae3b';
 const POS_ID_DIMENSION = 'dimension1';
-declare const ga: any; //ga() function comng from analytics.js library
+declare const ga: any; //ga() function comng from analytics.js  library
 
 const qs = window.location.search
   .replace(/^\?/, '')
