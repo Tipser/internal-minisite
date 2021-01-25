@@ -7,9 +7,10 @@ import {
   Checkout,
   TipserEnv,
   TipserLang,
-  ProductContext,
-  SimilarProducts,
-  StyleWithProducts,
+  ProductPage,
+  ModularProduct,
+  ProductSimilarProducts,
+  ProductStyleWithProducts,
   ProductDescription,
   ProductContainer,
 } from '@tipser/tipser-elements/dist/all';
@@ -143,22 +144,18 @@ class App extends React.Component {
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/modular-product-default" posId={POS_ID}>
             <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
-              <ProductContext productId="5c751cf82d3f3b0001bcec8c" />
+              <ProductPage productId="5c751cf82d3f3b0001bcec8c" />
             </div>
           </RouteWithTeProvider>
 
           <RouteWithTeProvider path="/modular-product" posId={POS_ID}>
             <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
-              <ProductContext productId="5c751cf82d3f3b0001bcec8c">
-                {(productContext) => (
-                  <>
-                    <ProductDescription {...productContext} />
-                    <StyleWithProducts {...productContext} />
-                    <ProductContainer {...productContext} />
-                    <SimilarProducts {...productContext} />
-                  </>
-                )}
-              </ProductContext>
+              <ModularProduct productId="5c751cf82d3f3b0001bcec8c">
+                <ProductDescription />
+                <ProductStyleWithProducts />
+                <ProductContainer />
+                <ProductSimilarProducts />
+              </ModularProduct>
             </div>
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/french-product" posId={POS_ID}>
