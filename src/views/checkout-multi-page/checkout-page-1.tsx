@@ -1,11 +1,15 @@
 import React, { FC } from 'react';
-import { CartProducts, CartPromoCode, CartSummary } from '@tipser/tipser-elements/dist/all';
+import {
+  CheckoutCartProducts,
+  CheckoutCartPromoCode,
+  CheckoutCartSummary,
+  ModularCheckoutContextData,
+} from '@tipser/tipser-elements/dist/all';
 import { Link } from 'react-router-dom';
-import { CheckoutData } from '@tipser/tipser-elements/dist/all';
 import './checkout-multipage.scss';
 
 type Props = {
-  checkout: CheckoutData;
+  checkout: ModularCheckoutContextData;
 };
 
 export const CheckoutPage1: FC<Props> = ({ checkout }) => (
@@ -21,14 +25,14 @@ export const CheckoutPage1: FC<Props> = ({ checkout }) => (
         <p className="te-checkout-heading">
           My Cart <span>({checkout.shoppingCart.items.length})</span>
         </p>
-        <CartProducts {...checkout} />
+        <CheckoutCartProducts />
       </div>
       <div className="te-multipage-columns-narrow">
         <p className="te-checkout-heading">
           Order Summary <span>({checkout.shoppingCart.items.length})</span>
         </p>
-        <CartSummary {...checkout} />
-        <CartPromoCode {...checkout} />
+        <CheckoutCartSummary />
+        <CheckoutCartPromoCode />
         <div className="te-next-step">
           <Link to={'/checkout-multipage/step-2'}>Checkout as guest</Link>
         </div>

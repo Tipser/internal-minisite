@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import {
-  CheckoutData,
+  ModularCheckoutContextData,
   CheckoutPayment,
-  CustomerAddressBilling,
-  CustomerAddressDelivery,
+  CheckoutCustomerAddressBilling,
+  CheckoutCustomerAddressDelivery,
 } from '@tipser/tipser-elements/dist/all';
 
 type Props = {
-  checkout: CheckoutData;
+  checkout: ModularCheckoutContextData;
 };
 
 export const CheckoutPage2: FC<Props> = ({ checkout }) => (
@@ -21,13 +21,13 @@ export const CheckoutPage2: FC<Props> = ({ checkout }) => (
     <div className="te-multipage-columns">
       <div className="te-multipage-columns-wide">
         <p className="te-checkout-heading">Delivery Address</p>
-        <CustomerAddressDelivery {...checkout} onCheckboxClick={() => null} />
+        <CheckoutCustomerAddressDelivery />
         <p className="te-checkout-heading">Billing Address</p>
-        <CustomerAddressBilling {...checkout} />
+        <CheckoutCustomerAddressBilling />
       </div>
       <div className="te-multipage-columns-narrow">
         <p className="te-checkout-heading">Payment</p>
-        <CheckoutPayment {...checkout} />
+        <CheckoutPayment />
       </div>
     </div>
   </div>
