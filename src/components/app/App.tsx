@@ -66,6 +66,8 @@ let tipserConfig = {
       city: 'Ankeborg',
       street: 'Stårgatan 1',
       country: 'Sweden',
+      state: 'New York',
+      phone: '+01111111111'
     },
     billing: {
       firstName: 'Aga',
