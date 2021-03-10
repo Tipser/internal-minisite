@@ -3,13 +3,13 @@ import {
   CheckoutCartProducts,
   CheckoutCartPromoCode,
   CheckoutCartSummary,
-  ModularCheckoutContextData,
+  LegacyModularCheckoutContextData,
 } from '@tipser/tipser-elements/dist/all';
 import { Link } from 'react-router-dom';
 import './checkout-multipage.scss';
 
 type Props = {
-  checkout: ModularCheckoutContextData;
+  checkout: LegacyModularCheckoutContextData;
 };
 
 export const CheckoutPage1: FC<Props> = ({ checkout }) => (
