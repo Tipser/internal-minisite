@@ -1,25 +1,35 @@
 import React from 'react';
-import { Checkout, ModularCheckoutContextData } from '@tipser/tipser-elements/dist/all';
+import {
+  LegacyModularCheckoutContextData,
+  ModularCheckout,
+  ModularCheckoutContextData,
+} from '@tipser/tipser-elements/dist/all';
 import { Route, Switch, withRouter } from 'react-router';
 import { CheckoutPage1 } from './checkout-page-1';
 import { CheckoutPage2 } from './checkout-page-2';
 import './checkout-multipage.scss';
 
+export function isLegacyCheckout(context: ModularCheckoutContextData): context is LegacyModularCheckoutContextData {
+  return context.checkoutVersion === 'legacy';
+}
+
 export const CheckoutMultipage = withRouter(({ match }) => {
   return (
     <div className="te-multipage-wrapper">
-      <Checkout>
-        {(checkout: ModularCheckoutContextData) => (
-          <Switch>
-            <Route path={`${match.url}/step-1`}>
-              <CheckoutPage1 checkout={checkout} />
-            </Route>
-            <Route path={`${match.url}/step-2`}>
-              <CheckoutPage2 checkout={checkout} />
-            </Route>
-          </Switch>
-        )}
-      </Checkout>
+      <ModularCheckout>
+        {(checkout) =>
+          isLegacyCheckout(checkout) ? (
+            <Switch>
+              <Route path={`${match.url}/step-1`}>
+                <CheckoutPage1 checkout={checkout} />
+              </Route>
+              <Route path={`${match.url}/step-2`}>
+                <CheckoutPage2 checkout={checkout} />
+              </Route>
+            </Switch>
+          ) : null
+        }
+      </ModularCheckout>
     </div>
   );
 });
