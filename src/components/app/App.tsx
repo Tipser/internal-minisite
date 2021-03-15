@@ -58,28 +58,6 @@ let tipserConfig = {
   addToCartSettings: {
     directToCheckoutMode: false,
   },
-  prePopulatedAddress: {
-    delivery: {
-      firstName: 'Aga',
-      lastName: 'Delivery',
-      email: 'delivery@w.pl',
-      zipCode: '12345',
-      city: 'Ankeborg',
-      street: 'Stårgatan 1',
-      country: 'Sweden',
-      state: 'NY',
-      phoneNumber: '+01111111111',
-    },
-    billing: {
-      firstName: 'Aga',
-      lastName: 'Billing',
-      email: 'billing@w.pl',
-      zipCode: '12345',
-      city: 'Ankeborgen',
-      street: 'Stårgatan 1',
-      country: 'Sweden',
-    },
-  },
   // customUrls: {
   //   checkoutUrl: '/checkout',
   //   checkoutConfirmationUrl: '/checkout-confirmation',
