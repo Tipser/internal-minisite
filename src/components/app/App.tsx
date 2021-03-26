@@ -26,6 +26,7 @@ import { EmbeddedProductDemo } from '../../views/embedded-product';
 import { ThumbnailsDemo } from '../../views/product-image-with-thumbnails/thumbnails-demo';
 import { TipserElementsConfig } from '@tipser/tipser-elements/dist/config';
 import { ProductionTest } from '../../views/production-test';
+import { EmbeddedCart } from '../../views/embedded-cart/modular-cart';
 
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5f738fdd023072000132ae3b';
@@ -107,12 +108,10 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
     return (
       <RouterHistory>
         {(history) => {
-          const Provider = TipserElementsProvider as any;
           return (
-            <Provider
+            <TipserElementsProvider
               posId={posId}
               config={{ ...tipserConfig, ...overrideConfig } as any}
-              isSentryEnabled={true}
               history={history}
             >
               <div className="te-site">
@@ -120,7 +119,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
                 <div className="site-body">{children}</div>
                 <Footer />
               </div>
-            </Provider>
+            </TipserElementsProvider>
           );
         }}
       </RouterHistory>
@@ -142,6 +141,9 @@ class App extends React.Component {
           </RouteWithTeProvider>
           <RouteWithTeProvider path="/thumbnails" posId={POS_ID}>
             <ThumbnailsDemo />
+          </RouteWithTeProvider>
+          <RouteWithTeProvider exact path="/embedded-cart" posId={POS_ID}>
+            <EmbeddedCart />
           </RouteWithTeProvider>
 
           <RouteWithTeProvider path="/modular-product-default/:productId" posId={POS_ID}>
