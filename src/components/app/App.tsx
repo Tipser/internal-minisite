@@ -184,7 +184,7 @@ class App extends React.Component {
           <RouteWithTeProvider
             path="/production-test/:productId?"
             posId="5f738fdd023072000132ae3b"
-            overrideConfig={{ env: TipserEnv.prod, experimentalCheckout: true }}
+            overrideConfig={{ env: TipserEnv.prod, enableCheckoutV2: true }}
           >
             <ProductionTest />
           </RouteWithTeProvider>
