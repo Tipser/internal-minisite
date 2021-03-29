@@ -55,7 +55,7 @@ let tipserConfig = {
   openOldDialog: false,
   openOldCheckout: false,
   modalUi: {
-    hideSimilarProducts: true,
+    hideSimilarProducts: false,
   },
   addToCartSettings: {
     directToCheckoutMode: false,
