@@ -60,6 +60,7 @@ let tipserConfig = {
   addToCartSettings: {
     directToCheckoutMode: false,
   },
+  enableCheckoutV2: true
   // customUrls: {
   //   checkoutUrl: '/checkout',
   //   checkoutConfirmationUrl: '/checkout-confirmation',
