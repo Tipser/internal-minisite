@@ -1,0 +1,36 @@
+.te-added-to-cart {
+  .te-added-to-cart-product-basic-info {
+    .te-product-name {
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
+    .te-product-brand {
+      color: #666;
+      font-size: 1em;
+    }
+    .te-product-price-container {
+      .te-product-price-main {
+        .te-product-sales-price {
+          font-weight: 900;
+          color: #cd5550;
+          font-size: 1.8em;
+        }
+        .te-product-regular-price {
+          text-decoration: line-through;
+          font-size: 1.3em;
+          margin-bottom: 5px;
+        }
+      }
+      .te-product-price-vat-info {
+        color: #a6aaa9;
+        font-weight: 400;
+      }
+    }
+  }
+  .te-button {
+    .te-button-body {
+      border-radius: 4px;
+    }
+  }
+}

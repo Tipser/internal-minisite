@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tipser/tipser-elements": "^2.3.9",
-    "@tipser/tipser-sdk": "^2.2.54",
+    "@tipser/tipser-elements": "^3.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-portal": "^4.2.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "tipser-elements-v2": "npm:@tipser/tipser-elements@^2.3.9"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,0 +1,59 @@
+// @import '../tipser-font';
+
+.tipser-icon,
+.tipser-icon:hover {
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.tipser-icon_nolink {
+  cursor: default;
+}
+
+.tipser-icon_disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.tipser-icon_primary:before {
+  color: currentColor;
+}
+
+/* enforcing bold icons */
+.tipser-icon-bold {
+  font-weight: bold;
+}
+
+.tipser-icon-small {
+  font-size: 18px;
+}
+
+.tipser-icon-medium {
+  font-size: 22px;
+}
+
+.tipser-icon-large {
+  font-size: 27px;
+}
+
+.tipser-icon-x2 {
+  font-size: 36px;
+}
+
+.tipser-icon-x4 {
+  font-size: 58px;
+}
+
+.tipser-icon_label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 100;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #444;
+  vertical-align: middle;
+  text-align: left;
+  -webkit-font-smoothing: initial;
+  margin-left: 8px;
+}
