@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
 import './index.scss';
 import './common/site.scss';
-import App from './components/app/App';
+import AppV2 from './v2/components/app/App';
+import AppV3 from './v3/components/app/App';
 import * as serviceWorker from './serviceWorker';
 
+const App: FC = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/v2" component={AppV2} />
+        <Route path="/v3" component={AppV3} />
+        <Route exact path="*" render={() => <Redirect to="/v3" />} />
+      </Switch>
+    </Router>
+  );
+};
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

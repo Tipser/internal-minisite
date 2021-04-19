@@ -1,0 +1,190 @@
+.drawer-container {
+  & > .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  &.no-close {
+    .header {
+      display: none;
+    }
+  }
+
+  &.transparent-overlay > .overlay {
+    background: transparent;
+    opacity: 1;
+  }
+
+  &.offscreen > .overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .drawer {
+    background: black;
+    transition: transform 0.6s ease;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    .header {
+      cursor: pointer;
+      z-index: 3;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      .title {
+        padding: 5px 10px;
+        font-weight: 300;
+        background: #9a9;
+        display: block;
+        text-transform: uppercase;
+        font-size: 10px;
+        color: white;
+      }
+
+      &.no-title .title {
+        background: white;
+        display: none;
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: 4px;
+      top: 3px;
+      font-size: 20px;
+      display: block;
+      padding: 6px;
+      box-sizing: border-box;
+      line-height: 0;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  // animations and positions of for fixed drawer
+  &:not(.inline) {
+    .overlay {
+      z-index: 10;
+    }
+    .drawer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 100px;
+      top: 0;
+      z-index: 11;
+      transform: translateY(100px);
+
+      // &.drawer-responsive {
+      //     @media @medium-and-more {
+      //         left: auto;
+      //         width: 500px;
+      //         top: 0;
+      //         bottom: 0;
+      //         transform: none;
+      //     }
+      // }
+
+      .content {
+        position: absolute;
+        top: 30px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+      }
+    }
+
+    &.no-close {
+      .content {
+        top: 0;
+      }
+    }
+
+    //invisible state for drawer from bottom
+    &.offscreen {
+      .drawer {
+        transform: translate(102vh);
+      }
+    }
+
+    &.slide-from-right {
+      .drawer {
+        left: 20px;
+        bottom: 0;
+        right: 0; //fullwidth for small resolutions
+        transform: translateY(0);
+        // @media @small-and-more {
+        //     min-width: 470px; // disable full width and set max-width
+        //     left: auto;
+        // }
+      }
+
+      &.offscreen {
+        .drawer {
+          transform: translateX(102vw);
+        }
+      }
+    }
+    &.slide-from-left {
+      .drawer {
+        left: 0;
+        bottom: 0;
+        right: 20px; //fullwidth for small resolutions
+        transform: translateY(0);
+        // @media @small-and-more {
+        //     min-width: 470px; // disable full width and set max-width
+        //     right: auto;
+        // }
+      }
+
+      &.offscreen {
+        .drawer {
+          transform: translateX(-102vw);
+        }
+      }
+    }
+  }
+  // inline positioning and animations
+  &.inline {
+    .drawer {
+      position: absolute;
+      top: auto;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: 100%;
+      height: auto;
+      z-index: 2;
+      box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+
+      .content {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+      }
+    }
+
+    &.slide-from-top {
+      &.offscreen .drawer {
+        transform: translateY(-106%); //safe offset for the box shadow
+      }
+      .drawer {
+        transform: none;
+      }
+    }
+  }
+}

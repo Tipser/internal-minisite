@@ -1,0 +1,265 @@
+//XXXXXXXXXX
+.footer {
+  background: #f2f2f2;
+  clear: both;
+}
+.footer-contact-us {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-contact-us {
+  text-align: center;
+}
+
+.footer-contact-us,
+.footer-help {
+  text-transform: uppercase;
+}
+.footer-contact-us .footer-header {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.footer-header {
+  display: block;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.footer-contact-us .footer-links {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+.footer-links {
+  text-align: center;
+  text-transform: none;
+}
+.footer-links .footer-link {
+  display: inline-block;
+  margin: 5px;
+  margin-right: 0;
+}
+
+a:visited {
+  opacity: 0.9;
+}
+.footer-link a,
+a.footer-link {
+  cursor: pointer;
+  color: #b8a056;
+}
+.footer-link,
+.footer-link a {
+  cursor: default;
+  text-transform: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+a {
+  transition: 0.5s;
+}
+.uk-link,
+a {
+  color: #07d;
+  text-decoration: none;
+  cursor: pointer;
+}
+a {
+  background: transparent;
+}
+@media (min-width: 1220px) {
+}
+.footer-columns {
+  margin: 0 auto;
+}
+.footer-columns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0 50px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+.footer-column {
+  margin: 30px 0;
+  padding: 0 10px;
+}
+.footer-header {
+  display: block;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.footer-security-info-bullets {
+  white-space: nowrap;
+}
+.footer-column .footer-link,
+.footer-security-info-bullets > span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 13px;
+  white-space: nowrap;
+}
+.footer-column .footer-link:last-child,
+.footer-security-info-bullets > span:last-child {
+  margin-bottom: 0;
+}
+.footer-payments {
+  flex-shrink: 2;
+  overflow: hidden;
+}
+
+.footer-header {
+  display: block;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.footer-payments-icons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.footer-payments-icons .psp-icon-wrapper {
+  background: #fff;
+  // padding: 14px;
+  padding: 5px;
+  margin-right: 15px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  display: flex;
+}
+.footer-contact-us,
+.footer-help {
+  text-transform: uppercase;
+}
+
+.footer-header {
+  display: block;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.footer-column .footer-link,
+.footer-security-info-bullets > span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 13px;
+  white-space: nowrap;
+}
+
+.footer-link,
+.footer-link a {
+  cursor: default;
+  text-transform: none;
+}
+.footer-column .footer-link:last-child,
+.footer-security-info-bullets > span:last-child {
+  margin-bottom: 0;
+}
+
+.footer-column .footer-link,
+.footer-security-info-bullets > span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 13px;
+  white-space: nowrap;
+}
+.footer-link,
+.footer-link a {
+  cursor: default;
+  text-transform: none;
+}
+.footer-terms {
+  background: #f2f2f2;
+  border-top: 1px solid #dcdee0;
+  margin-top: 25px;
+  padding: 30px 50px;
+}
+.footer-logo {
+  display: flex;
+  justify-content: space-between;
+}
+a:visited {
+  opacity: 0.9;
+}
+
+.tipser-logo {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  margin-top: 8px;
+  width: 100px;
+  height: 15px;
+  background-image: url(/523e894….png);
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+a {
+  transition: 0.5s;
+}
+a:visited {
+  opacity: 0.9;
+}
+
+.footer-social-media-icon {
+  font-size: 20px;
+  padding: 2px;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+  cursor: hand;
+  color: #aaa;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+a {
+  transition: 0.5s;
+}
+.uk-link,
+a {
+  color: #07d;
+  text-decoration: none;
+  cursor: pointer;
+}
+a {
+  background: transparent;
+}
+.footer-terms .footer-terms-links {
+  margin: 10px 0;
+}
+.footer-links-privacy {
+  margin-top: 25px;
+  font-size: 12px;
+}
+
+.footer-links {
+  text-align: center;
+  text-transform: none;
+}
+.footer-copyrights {
+  text-align: center;
+}

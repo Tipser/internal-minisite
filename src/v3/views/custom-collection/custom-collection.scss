@@ -1,0 +1,217 @@
+[class^='custom-collection'] {
+  .te-collection-container {
+    .te-product-card {
+      margin: 5px;
+      position: relative;
+
+      .te-product-card-details {
+        padding-bottom: 0;
+      }
+
+      .te-product-card-brand {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
+    }
+
+    .te-collection-extra-large .te-product-card {
+      width: calc(20% - 10px);
+    }
+
+    .te-collection-large .te-product-card {
+      width: calc(25% - 10px);
+    }
+
+    .te-collection-small .te-product-card {
+      width: calc(50% - 10px);
+    }
+
+    .te-collection-xsmall .te-product-card {
+      width: 100%;
+    }
+  }
+}
+
+.custom-collection {
+  &-base {
+    .te-product-card .te-product-card-img:before {
+      background: #000;
+      bottom: 0px;
+      content: '';
+      left: 0px;
+      opacity: 0.05;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+  }
+
+  &-shadowed {
+    .te-product-card {
+      position: relative;
+      background-color: rgba(#000, 0.05);
+    }
+    .te-product-card-img {
+      background-color: #fff;
+
+      &:before {
+        background: #000;
+        bottom: 0px;
+        content: '';
+        left: 0px;
+        opacity: 0.05;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+      }
+    }
+
+    .te-store {
+      flex-direction: column;
+
+      .te-store-desktop-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .te-store-menu-item {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        color: #333;
+        margin: 5px;
+        white-space: nowrap;
+      }
+
+      .te-primary-border,
+      .te-store-menu-item:hover {
+        border-color: transparent;
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  &-bordered {
+    .te-product-card {
+      border: 1px solid lightgray;
+    }
+  }
+
+  &-columns {
+    .te-product-card-img {
+      background-color: #fff;
+
+      &:before {
+        background: #000;
+        bottom: 0px;
+        content: '';
+        left: 0px;
+        opacity: 0.05;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+      }
+    }
+    .te-product-card {
+      display: flex;
+      background-color: rgba(#000, 0.05);
+
+      .te-img.object-fit.object-fit-auto.img-loaded.te-product-card-img {
+        flex-basis: 50%;
+      }
+
+      .te-product-card-details {
+        flex-basis: calc(50% - 5px);
+        margin-left: 5px;
+      }
+    }
+
+    .te-collection-container .te-collection {
+      &.te-collection-extra-large {
+        .te-product-card {
+          width: calc(33% - 10px);
+        }
+      }
+
+      &.te-collection-large,
+      &.te-collection-small {
+        .te-product-card {
+          width: calc(50% - 10px);
+        }
+      }
+
+      &.te-collection-xsmall {
+        .te-product-card {
+          width: 100%;
+        }
+      }
+
+      .te-product-card {
+        .te-product-card-brand {
+          color: #333;
+          border-bottom: 1.5px solid #cb56535e;
+          font-size: 0.8em;
+          line-height: 1.5;
+          max-width: 100%;
+          text-transform: lowercase;
+          white-space: normal;
+
+          &:first-letter {
+            text-transform: capitalize;
+          }
+        }
+        .te-product-card-name {
+          font-size: 0.9em;
+          line-height: 1.5;
+          height: 3em;
+          padding-top: 5px;
+          white-space: normal;
+          text-align: center;
+          text-transform: lowercase;
+
+          &:first-letter {
+            text-transform: capitalize;
+          }
+        }
+
+        .te-product-card-price {
+          font-size: 0.9em;
+          font-weight: normal;
+          color: #333;
+        }
+
+        .te-product-card-sales-price {
+          font-size: 0.95em;
+          font-weight: normal;
+        }
+
+        .te-button.te-button-default {
+          font-size: 0.9em;
+          margin-top: 10px;
+
+          .te-primary-fill {
+            background-color: transparent;
+            border: 1px solid rgba(51, 51, 51, 0.7);
+          }
+
+          .te-button-text {
+            color: rgba(51, 51, 51, 0.7);
+            text-transform: capitalize;
+          }
+
+          &:hover .te-primary-fill {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.custom-collections {
+  h2 {
+    max-width: 940px;
+    margin: 30px auto;
+  }
+}
