@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, RouteProps, withRouter } from 'react-router-dom';
+import { Route, RouteProps, useRouteMatch, withRouter } from 'react-router-dom';
 
 import {
   TipserElementsProvider,
@@ -27,6 +27,7 @@ import { ThumbnailsDemo } from '../../views/product-image-with-thumbnails/thumbn
 import { TipserElementsConfig } from '@tipser/tipser-elements/dist/config';
 import { ProductionTest } from '../../views/production-test';
 import { EmbeddedCart } from '../../views/embedded-cart/modular-cart';
+import { Switch } from 'react-router';
 
 const CONTENTFUL_PAGE_ID = '7sl4asGO6p0St5zOT5XFeH'; // https://app.contentful.com/spaces/i8t5uby4h6ds/entries/11sOn6krBDjuU0WmyAPKB6 5e5cc8df1f172b0001f8174d
 const POS_ID = '5f738fdd023072000132ae3b';
@@ -130,67 +131,66 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
 
 // const PageWithSlug = withRouter((props) => <PageBySlug slug={props.match.params.slug} />);
 
-class App extends React.Component {
-  render() {
-    return (
-      <>
-        <RouteWithTeProvider exact path="/" posId={POS_ID}>
-          <Page id={CONTENTFUL_PAGE_ID} />
-          <CustomCollection />
-          <ModularProducts />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/thumbnails" posId={POS_ID}>
-          <ThumbnailsDemo />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider exact path="/embedded-cart" posId={POS_ID}>
-          <EmbeddedCart />
-        </RouteWithTeProvider>
+const App = () => {
+  const { url } = useRouteMatch() as any;
+  return (
+    <Switch>
+      <RouteWithTeProvider exact path={`${url}/`} posId={POS_ID}>
+        <Page id={CONTENTFUL_PAGE_ID} />
+        <CustomCollection />
+        <ModularProducts />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/thumbnails`} posId={POS_ID}>
+        <ThumbnailsDemo />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider exact path={`${url}/embedded-cart`} posId={POS_ID}>
+        <EmbeddedCart />
+      </RouteWithTeProvider>
 
-        <RouteWithTeProvider path="/modular-product-default/:productId" posId={POS_ID}>
-          <EmbeddedProductDemo />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/modular-product-default" posId={POS_ID}>
-          <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
-            <ProductPage productId="5c751cf82d3f3b0001bcec8c" />
-          </div>
-        </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/modular-product-default/:productId`} posId={POS_ID}>
+        <EmbeddedProductDemo />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/modular-product-default`} posId={POS_ID}>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
+          <ProductPage productId="5c751cf82d3f3b0001bcec8c" />
+        </div>
+      </RouteWithTeProvider>
 
-        <RouteWithTeProvider path="/modular-product" posId={POS_ID}>
-          <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
-            <ModularProduct productId="5c751cf82d3f3b0001bcec8c">
-              <ProductDescription />
-              <ProductStyleWithProducts />
-              <ProductContainer />
-              <ProductSimilarProducts />
-            </ModularProduct>
-          </div>
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/french-product" posId={POS_ID}>
-          <FrenchProduct />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/checkout" posId={POS_ID}>
-          <Checkout />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/checkout-confirmation" posId={POS_ID}>
-          <Checkout />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/checkout-multipage" posId={POS_ID}>
-          <CheckoutMultipage />
-        </RouteWithTeProvider>
-        <RouteWithTeProvider path="/embedded-product/:productId" posId={POS_ID}>
-          <EmbeddedProductDemo />
-        </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/modular-product`} posId={POS_ID}>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', paddingTop: '50px' }}>
+          <ModularProduct productId="5c751cf82d3f3b0001bcec8c">
+            <ProductDescription />
+            <ProductStyleWithProducts />
+            <ProductContainer />
+            <ProductSimilarProducts />
+          </ModularProduct>
+        </div>
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/french-product`} posId={POS_ID}>
+        <FrenchProduct />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/checkout`} posId={POS_ID}>
+        <Checkout />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/checkout-confirmation`} posId={POS_ID}>
+        <Checkout />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/checkout-multipage`} posId={POS_ID}>
+        <CheckoutMultipage />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/embedded-product/:productId`} posId={POS_ID}>
+        <EmbeddedProductDemo />
+      </RouteWithTeProvider>
 
-        <RouteWithTeProvider
-          path="/production-test/:productId?"
-          posId="5f738fdd023072000132ae3b"
-          overrideConfig={{ env: TipserEnv.prod }}
-        >
-          <ProductionTest />
-        </RouteWithTeProvider>
-      </>
-    );
-  }
-}
+      <RouteWithTeProvider
+        path={`${url}/production-test/:productId?`}
+        posId="5f738fdd023072000132ae3b"
+        overrideConfig={{ env: TipserEnv.prod }}
+      >
+        <ProductionTest />
+      </RouteWithTeProvider>
+    </Switch>
+  );
+};
 
 export default App;
