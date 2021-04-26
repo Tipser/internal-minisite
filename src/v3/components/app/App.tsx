@@ -62,11 +62,13 @@ let tipserConfig = {
     directToCheckoutMode: false,
   },
   enableCheckoutV2: true,
-  // customUrls: {
-  //   checkoutUrl: '/checkout',
-  //   checkoutConfirmationUrl: '/checkout-confirmation',
-  //   productBaseUrl: '/modular-product-default',
-  // },
+  customUrls: {
+    // checkoutUrl: '/checkout',
+    // checkoutConfirmationUrl: '/checkout-confirmation',
+    // productBaseUrl: '/modular-product-default',
+    // cartUrl: 'cart-page'
+  },
+  enableNewCheckoutUX: true,
 };
 
 const RouterHistory = withRouter(({ children, history }: any) => {

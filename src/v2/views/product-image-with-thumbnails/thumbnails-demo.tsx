@@ -10,10 +10,10 @@ export const ThumbnailsDemo = () => {
       <h3>Props for ProductThumbnails : </h3>
       direction: 'horizontal' | 'vertical', imageFit: 'contain' | 'cover';
       <h1>Product mobile version</h1>
-      <code>{'<ProductImage enableDots swipeAnimation enableSwipe enableArrows/>'}</code>
+      <code>{'<ProductImage enableDots enableSwipe enableArrows/>'}</code>
       <ModularProduct productId="5c751cf82d3f3b0001bcec8c">
         <div style={{ width: '350px', height: '500px', marginBottom: '10px' }}>
-          <ProductImage enableDots swipeAnimation enableSwipe enableArrows />
+          <ProductImage enableDots enableSwipe enableArrows />
         </div>
       </ModularProduct>
       <h1>Product tablet version</h1>
@@ -115,22 +115,9 @@ export const ThumbnailsDemo = () => {
           </ModularProduct>
         </div>
       </div>
-      <h1>ProductImage enableSwipe props</h1>
-      <code>{'<ProductImage enableSwipe />'}</code>
-      <ModularProduct productId="5c751cf82d3f3b0001bcec8c">
-        <div style={{ display: 'flex', width: '800px', height: '400px' }}>
-          <div style={{ width: '300px', overflow: 'hidden', marginRight: '50px' }}>
-            <ProductImage />
-          </div>
-
-          <div style={{ width: '300px', overflow: 'hidden' }}>
-            <ProductImage enableSwipe />
-          </div>
-        </div>
-      </ModularProduct>
       <h1>ProductImage swipeAnimation props</h1>
       <code>{"<ProductThumbnails direction='vertical' />"}</code>
-      <code>{'<ProductImage swipeAnimation />'}</code>
+      <code>{'<ProductImage  />'}</code>
       <ModularProduct productId="591b0c1a8aa0ce139c72dd33">
         <div style={{ display: 'flex', width: '700px', height: '700px' }}>
           <div style={{ height: '100%', marginRight: '20px' }}>
@@ -138,7 +125,7 @@ export const ThumbnailsDemo = () => {
           </div>
 
           <div style={{ width: '100%', overflow: 'hidden' }}>
-            <ProductImage swipeAnimation />
+            <ProductImage />
           </div>
         </div>
       </ModularProduct>
