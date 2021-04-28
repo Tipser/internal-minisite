@@ -13,6 +13,7 @@ import {
   ProductStyleWithProducts,
   ProductDescription,
   ProductContainer,
+  CartPage
 } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
@@ -66,7 +67,7 @@ let tipserConfig = {
     // checkoutUrl: '/checkout',
     // checkoutConfirmationUrl: '/checkout-confirmation',
     // productBaseUrl: '/modular-product-default',
-    // cartUrl: 'cart-page'
+    // cartUrl: '/cart-page'
   },
   enableNewCheckoutUX: true,
 };
@@ -170,6 +171,9 @@ const App = () => {
       </RouteWithTeProvider>
       <RouteWithTeProvider path={`${url}/french-product`} posId={POS_ID}>
         <FrenchProduct />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/cart-page`} posId={POS_ID}>
+        <CartPage />
       </RouteWithTeProvider>
       <RouteWithTeProvider path={`${url}/checkout`} posId={POS_ID}>
         <Checkout />
