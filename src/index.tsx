@@ -7,14 +7,15 @@ import './common/site.scss';
 import AppV2 from './v2/components/app/App';
 import AppV3 from './v3/components/app/App';
 import * as serviceWorker from './serviceWorker';
+import { marketParamValues } from './market-config';
 
 const App: FC = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/v2" component={AppV2} />
-        <Route path="/v3" component={AppV3} />
-        <Route exact path="*" render={() => <Redirect to="/v3" />} />
+        <Route path={`/v2/:market(${marketParamValues})`} component={AppV2} />
+        <Route path={`/v3/:market(${marketParamValues})`} component={AppV3} />
+        <Route exact path="*" render={() => <Redirect to="/v3/us" />} />
       </Switch>
     </Router>
   );
