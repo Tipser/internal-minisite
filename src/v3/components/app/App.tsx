@@ -4,7 +4,7 @@ import { Route, RouteProps, useRouteMatch, withRouter } from 'react-router-dom';
 import {
   TipserElementsProvider,
   Page,
-  Checkout,
+  CheckoutPage,
   TipserEnv,
   TipserLang,
   ProductPage,
@@ -177,10 +177,10 @@ const App = () => {
         <CartPage />
       </RouteWithTeProvider>
       <RouteWithTeProvider path={`${url}/checkout`} posId={posId}>
-        <Checkout />
+        <CheckoutPage />
       </RouteWithTeProvider>
       <RouteWithTeProvider path={`${url}/checkout-confirmation`} posId={posId}>
-        <Checkout />
+        <CheckoutPage />
       </RouteWithTeProvider>
       <RouteWithTeProvider path={`${url}/checkout-multipage`} posId={posId}>
         <CheckoutMultipage />
