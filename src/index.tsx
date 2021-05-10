@@ -15,7 +15,8 @@ const App: FC = () => {
       <Switch>
         <Route path={`/v2/:market(${marketParamValues})`} component={AppV2} />
         <Route path={`/v3/:market(${marketParamValues})`} component={AppV3} />
-        <Route exact path="*" render={() => <Redirect to="/v3/us" />} />
+        <Redirect path="/v2" to="/v2/us" />
+        <Redirect path="*" to="/v3/us" />
       </Switch>
     </Router>
   );
