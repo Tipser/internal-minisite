@@ -114,7 +114,6 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
             <TipserElementsProvider
               posId={posId}
               config={{ ...tipserConfig, ...overrideConfig } as any}
-              history={history}
             >
               <div className="te-site">
                 <Header onLangChange={this.onLangChange} />
@@ -194,11 +193,13 @@ const App = () => {
       <RouteWithTeProvider
         path={`${url}/express-payment`}
         posId="5f738fdd023072000132ae3b"
-        overrideConfig={{ customUrls: {
-          checkoutUrl: '/v2/us/express-payment/checkout',
-            // checkoutConfirmationUrl: '/v2/us/express-payment/confirmation',
-            productBaseUrl: '/v2/us/express-payment/product'
-          } }}
+        overrideConfig={{
+          customUrls: {
+            checkoutUrl: '/v2/us/express-payment/checkout',
+            checkoutConfirmationUrl: '/v2/us/express-payment/confirmation',
+            productBaseUrl: '/v2/us/express-payment/product',
+          },
+        }}
       >
         <ExpressPayment />
       </RouteWithTeProvider>
