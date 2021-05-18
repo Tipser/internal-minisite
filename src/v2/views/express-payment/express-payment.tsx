@@ -45,17 +45,13 @@ const CheckoutSubpage = () => (
   <div>
     <h3>Checkout Page</h3>
     <ModularCheckout>
+      <h1 style={{ textAlign: 'center' }}>Products</h1>
       <CheckoutProductList />
       <CheckoutSummary />
-      <CheckoutCartPromoCode />
       <h1 style={{ textAlign: 'center' }}>Delivery address</h1>
       <CheckoutCustomerAddressDelivery />
-      <h1 style={{ textAlign: 'center' }}>Billing address</h1>
-      <CheckoutCustomerAddressBilling />
-      <CheckoutPaymentRequestButton />
       <h1 style={{ textAlign: 'center' }}>Payment</h1>
-      <CheckoutPayment dependsOn={'none'} />
-      <CheckoutLegal />
+      <CheckoutPaymentRequestButton />
     </ModularCheckout>
   </div>
 );
