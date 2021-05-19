@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import {
   CheckoutCartProducts,
-  CheckoutPromoCode,
+  CheckoutCartPromoCode,
   CheckoutCartSummary,
   LegacyModularCheckoutContextData,
 } from 'tipser-elements-v2/dist/all';
@@ -32,7 +32,7 @@ export const CheckoutPage1: FC<Props> = ({ checkout }) => (
           Order Summary <span>({checkout.shoppingCart.items.length})</span>
         </p>
         <CheckoutCartSummary />
-        <CheckoutPromoCode />
+        <CheckoutCartPromoCode />
         <div className="te-next-step">
           <Link to={'/checkout-multipage/step-2'}>Checkout as guest</Link>
         </div>
