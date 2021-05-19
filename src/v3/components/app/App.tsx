@@ -30,7 +30,7 @@ import { ProductionTest } from '../../views/production-test';
 import { EmbeddedCart } from '../../views/embedded-cart/modular-cart';
 import { Switch, useParams } from 'react-router';
 import { Market, marketConfig } from '../../../market-config';
-import { ExpressPayment } from '../../../v2/views/express-payment';
+import { ExpressPayment } from '../../views/express-payment';
 
 const POS_ID_DIMENSION = 'dimension1';
 declare const ga: any; //ga() function comng from analytics.js  library
