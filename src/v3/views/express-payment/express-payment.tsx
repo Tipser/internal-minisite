@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Route, Switch, useParams } from 'react-router';
 import { useRouteMatch } from 'react-router-dom';
 import {
-  CartIcon, CheckoutCustomerAddressDelivery,
+  CheckoutCustomerAddressDelivery,
   CheckoutOrderConfirmation, CheckoutPaymentRequestButton,
   CheckoutProductList, CheckoutSummary,
   ModularCheckout,
