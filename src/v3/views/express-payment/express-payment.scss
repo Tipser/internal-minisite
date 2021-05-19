@@ -1,0 +1,18 @@
+
+.express-payment-demo {
+  @media only screen and (min-width: 1024px) {
+    .express-pay-button-wrapper {
+      display: flex;
+      align-items: center;
+
+      .express-pay-button {
+        max-width: 150px;
+      }
+    }
+  }
+
+  .classic-pay-section {
+    margin-bottom: 15px;
+  }
+
+}
