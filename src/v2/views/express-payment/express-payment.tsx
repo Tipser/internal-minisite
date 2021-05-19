@@ -17,14 +17,12 @@ const Home = () => {
 
   return (
     <>
-      <CartIcon />
       <ProductTile productId={productId || DEFAULT_PRODUCT_ID} />
     </>
   )
 }
 const ProductSubpage = () => {
   const { productId } = useParams<{ productId: string }>();
-  console.log(productId)
   return (
     <ProductPage productId={productId} />
   )
@@ -32,7 +30,7 @@ const ProductSubpage = () => {
 
 const ConfirmationSubpage = () => (
   <div>
-    <div>My confirmation page!</div>
+    <div>Checkout complete!</div>
     <ModularCheckout>
       <ModularCheckout.Confirmed>
         <CheckoutOrderConfirmation />
