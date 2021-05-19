@@ -30,6 +30,7 @@ import { ProductionTest } from '../../views/production-test';
 import { EmbeddedCart } from '../../views/embedded-cart/modular-cart';
 import { Switch, useParams } from 'react-router';
 import { Market, marketConfig } from '../../../market-config';
+import { ExpressPayment } from '../../../v2/views/express-payment';
 
 const POS_ID_DIMENSION = 'dimension1';
 declare const ga: any; //ga() function comng from analytics.js  library
@@ -195,6 +196,19 @@ const App = () => {
         overrideConfig={{ env: TipserEnv.prod }}
       >
         <ProductionTest />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider
+        path={`${url}/express-payment`}
+        posId="5f738fdd023072000132ae3b"
+        overrideConfig={{
+          customUrls: {
+            checkoutUrl: '/v3/us/express-payment/checkout',
+            checkoutConfirmationUrl: '/v3/us/express-payment/confirmation',
+            productBaseUrl: '/v3/us/express-payment/product',
+          },
+        }}
+      >
+        <ExpressPayment />
       </RouteWithTeProvider>
     </Switch>
   );
