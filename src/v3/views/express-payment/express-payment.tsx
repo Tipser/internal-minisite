@@ -54,7 +54,7 @@ const CheckoutSubpage = () => (
       <div className={'express-pay-button-wrapper'}>
         <CheckoutPaymentRequestButton dependsOn={'validAddress'} className={'express-pay-button'} />
       </div>
-      <CheckoutPayment className={'classic-pay-section'} />
+      <CheckoutPayment dependsOn={'validAddress'} className={'classic-pay-section'} />
     </ModularCheckout>
   </div>
 );

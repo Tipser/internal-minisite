@@ -2,8 +2,9 @@
 .express-payment-demo {
   @media only screen and (min-width: 1024px) {
     .express-pay-button-wrapper {
+      width: 100%;
       display: flex;
-      align-items: center;
+      justify-content: center;
 
       .express-pay-button {
         max-width: 150px;
