@@ -114,6 +114,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
             <TipserElementsProvider
               posId={posId}
               config={{ ...tipserConfig, ...overrideConfig } as any}
+              history={history}
             >
               <div className="te-site">
                 <Header onLangChange={this.onLangChange} />
