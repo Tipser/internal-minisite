@@ -13,7 +13,7 @@ import {
   ProductStyleWithProducts,
   ProductDescription,
   ProductContainer,
-  CartPage
+  CartPage,
 } from '@tipser/tipser-elements/dist/all';
 import Header from '../header';
 import Footer from '../footer';
@@ -108,20 +108,20 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
   };
 
   render() {
-    const { children } = this.props;
+    const { posId } = this.props;
     const overrideConfig = this.props.overrideConfig || {};
     return (
       <RouterHistory>
         {(history) => {
           return (
             <TipserElementsProvider
-              posId={this.props.posId}
+              posId={posId}
               config={{ ...tipserConfig, ...overrideConfig } as any}
               history={history}
             >
               <div className="te-site">
                 <Header onLangChange={this.onLangChange} />
-                <div className="site-body">{children}</div>
+                <div className="site-body">{super.render()}</div>
                 <Footer />
               </div>
             </TipserElementsProvider>
@@ -195,7 +195,11 @@ const App = () => {
         posId="5f738fdd023072000132ae3b"
         overrideConfig={{ env: TipserEnv.prod }}
       >
-        <ProductionTest />
+        <ProductionTest defaultProductId="604ab0fe6772862e4b4266b1" />
+      </RouteWithTeProvider>
+
+      <RouteWithTeProvider path={`${url}/staging-test/:productId?`} posId={posId}>
+        <ProductionTest defaultProductId="603f804e3c0fd07f8abb8493" />
       </RouteWithTeProvider>
       <RouteWithTeProvider
         path={`${url}/express-payment`}

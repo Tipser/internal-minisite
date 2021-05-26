@@ -105,7 +105,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
   };
 
   render() {
-    const { children, posId } = this.props;
+    const { posId } = this.props;
     const overrideConfig = this.props.overrideConfig || {};
     return (
       <RouterHistory>
@@ -118,7 +118,7 @@ class RouteWithTeProvider extends RouteWithGA<{ posId: string; overrideConfig?: 
             >
               <div className="te-site">
                 <Header onLangChange={this.onLangChange} />
-                <div className="site-body">{children}</div>
+                <div className="site-body">{super.render()}</div>
                 <Footer />
               </div>
             </TipserElementsProvider>
@@ -189,7 +189,11 @@ const App = () => {
         posId="5f738fdd023072000132ae3b"
         overrideConfig={{ env: TipserEnv.prod }}
       >
-        <ProductionTest />
+        <ProductionTest defaultProductId="604ab0fe6772862e4b4266b1" />
+      </RouteWithTeProvider>
+
+      <RouteWithTeProvider path={`${url}/staging-test/:productId?`} posId={posId}>
+        <ProductionTest defaultProductId="603f804e3c0fd07f8abb8493" />
       </RouteWithTeProvider>
       <RouteWithTeProvider
         path={`${url}/express-payment`}

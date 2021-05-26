@@ -1,19 +1,18 @@
 import React, { FC } from 'react';
-import { withRouter } from 'react-router';
+import { useParams } from 'react-router';
 
 import { ProductTile, Cart } from 'tipser-elements-v2/dist/all';
 
-const PRODUCT_ID = '604ab0fe6772862e4b4266b1';
-
-const ProductionTestComponent: FC<any> = ({ match }) => {
-  const { productId } = match.params;
+type Props = {
+  defaultProductId: string;
+};
+export const ProductionTest: FC<Props> = ({ defaultProductId }) => {
+  const { productId } = useParams();
 
   return (
     <div style={{ minHeight: '52vh' }}>
       <Cart />
-      <ProductTile productId={productId || PRODUCT_ID} />
+      <ProductTile productId={productId || defaultProductId} />
     </div>
   );
 };
-
-export const ProductionTest = withRouter(ProductionTestComponent);
