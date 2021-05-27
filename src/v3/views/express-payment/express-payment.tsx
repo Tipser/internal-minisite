@@ -77,11 +77,11 @@ export const ExpressPayment: FC = () => {
   return (
     <div style={{ minHeight: '52vh' }} className="express-payment-demo">
       <Switch>
-        <Route path={`${url}/express-payment/product/:productId`} component={ProductSubpage} />
-        <Route path={`${url}/express-payment/checkout`} component={CheckoutSubpage} />
-        <Route path={`${url}/express-payment/checkout-experimental`} component={CheckoutExperimentalSubpage} />
-        <Route path={`${url}/express-payment/confirmation`} component={ConfirmationSubpage} />
-        <Route path={`${url}/express-payment/:productId?`} exact component={Home} />
+        <Route path={`${url}/product/:productId`} component={ProductSubpage} />
+        <Route path={`${url}/checkout-experimental`} component={CheckoutExperimentalSubpage} />
+        <Route path={`${url}/checkout`} component={CheckoutSubpage} />
+        <Route path={`${url}/confirmation`} component={ConfirmationSubpage} />
+        <Route path={`${url}/:productId?`} exact component={Home} />
       </Switch>
 
     </div>
