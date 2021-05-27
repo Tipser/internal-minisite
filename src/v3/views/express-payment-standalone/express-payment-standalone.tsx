@@ -2,14 +2,15 @@ import React, { FC } from 'react';
 import { Route, Switch, useParams } from 'react-router';
 import { useRouteMatch } from 'react-router-dom';
 import {
-  CheckoutOrderConfirmation, CheckoutPaymentRequestButton,
+  CheckoutCustomerAddressDelivery,
+  CheckoutOrderConfirmation, CheckoutPayment, CheckoutPaymentRequestButton,
   CheckoutProductList, CheckoutSummary,
   ModularCheckout,
   ProductPage,
   ProductTile,
 } from '@tipser/tipser-elements/dist/all';
 
-import './express-payment.scss'
+import './express-payment-standalone.scss'
 
 const DEFAULT_PRODUCT_ID = '60479d1fdb3410ad13e27fab';
 
@@ -47,19 +48,39 @@ const CheckoutSubpage = () => (
       <h1 style={{ textAlign: 'center' }}>Products</h1>
       <CheckoutProductList />
       <CheckoutSummary />
+      <h1 style={{ textAlign: 'center' }}>Delivery address</h1>
+      <CheckoutCustomerAddressDelivery />
+      <h1 style={{ textAlign: 'center' }}>Payment</h1>
+      <div className={'express-pay-button-wrapper'}>
+        <CheckoutPaymentRequestButton dependsOn={'validAddress'} className={'express-pay-button'} />
+      </div>
+      <CheckoutPayment dependsOn={'validAddress'} className={'classic-pay-section'} />
+    </ModularCheckout>
+  </div>
+);
+
+const CheckoutExperimentalSubpage = () => (
+  <div>
+    <h3>Checkout Page</h3>
+    <ModularCheckout>
+      <h1 style={{ textAlign: 'center' }}>Products</h1>
+      <CheckoutProductList />
+      <CheckoutSummary />
       <h1 style={{ textAlign: 'center' }}>Payment</h1>
       <CheckoutPaymentRequestButton useStandaloneAddressForm={true} />
     </ModularCheckout>
   </div>
 );
 
-export const ExpressPayment: FC = () => {
+export const ExpressPaymentStandalone: FC = () => {
   const { url } = useRouteMatch() as any;
+  console.log(url)
   return (
     <div style={{ minHeight: '52vh' }} className="express-payment-demo">
       <Switch>
         <Route path={`${url}/product/:productId`} component={ProductSubpage} />
         <Route path={`${url}/checkout`} component={CheckoutSubpage} />
+        <Route path={`${url}/checkout-experimental`} component={CheckoutExperimentalSubpage} />
         <Route path={`${url}/confirmation`} component={ConfirmationSubpage} />
         <Route path={`${url}/:productId?`} exact component={Home} />
       </Switch>
