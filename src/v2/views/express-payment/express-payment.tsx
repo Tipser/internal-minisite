@@ -3,8 +3,10 @@ import { Route, Switch, useParams } from 'react-router';
 import { useRouteMatch } from 'react-router-dom';
 import {
   CheckoutCustomerAddressDelivery,
-  CheckoutOrderConfirmation, CheckoutPaymentRequestButton,
-  CheckoutProductList, CheckoutSummary,
+  CheckoutOrderConfirmation,
+  CheckoutPaymentRequestButton,
+  CheckoutProductList,
+  CheckoutSummary,
   ModularCheckout,
   ProductPage,
   ProductTile,
@@ -19,14 +21,12 @@ const Home = () => {
     <>
       <ProductTile productId={productId || DEFAULT_PRODUCT_ID} />
     </>
-  )
-}
+  );
+};
 const ProductSubpage = () => {
   const { productId } = useParams<{ productId: string }>();
-  return (
-    <ProductPage productId={productId} />
-  )
-}
+  return <ProductPage productId={productId} />;
+};
 
 const ConfirmationSubpage = () => (
   <div>
@@ -64,8 +64,6 @@ export const ExpressPayment: FC = () => {
         <Route path={`${url}/confirmation`} component={ConfirmationSubpage} />
         <Route path={`${url}/:productId?`} exact component={Home} />
       </Switch>
-
     </div>
   );
 };
-

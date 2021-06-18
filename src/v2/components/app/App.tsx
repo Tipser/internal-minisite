@@ -139,8 +139,6 @@ const App = () => {
     <Switch>
       <RouteWithTeProvider exact path={`${url}/`} posId={posId}>
         <Page id={contentfulId} />
-        <CustomCollection />
-        <ModularProducts />
       </RouteWithTeProvider>
       <RouteWithTeProvider path={`${url}/thumbnails`} posId={posId}>
         <ThumbnailsDemo />
@@ -207,6 +205,10 @@ const App = () => {
         }}
       >
         <ExpressPayment />
+      </RouteWithTeProvider>
+      <RouteWithTeProvider path={`${url}/experiment`} posId={posId}>
+        <CustomCollection />
+        <ModularProducts />
       </RouteWithTeProvider>
     </Switch>
   );
