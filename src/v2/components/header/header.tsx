@@ -60,15 +60,6 @@ export default class Header extends React.Component<Props> {
                   </option>
                 ))}
               </select>
-              <a href={`/checkout/${this.state.param ? this.state.param : ''}`} className="horizontal-menu-link">
-                Go to checkout
-              </a>
-              <a
-                href={`checkout-multipage/step-1/${this.state.param ? this.state.param : ''}`}
-                className="horizontal-menu-link"
-              >
-                Go to multistep checkout
-              </a>
             </li>
           </ul>
           <span className="horizontal-item cart">
