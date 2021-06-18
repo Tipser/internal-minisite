@@ -2,14 +2,16 @@ import React, { FC } from 'react';
 import { Route, Switch, useParams } from 'react-router';
 import { useRouteMatch } from 'react-router-dom';
 import {
-  CheckoutOrderConfirmation, CheckoutPaymentRequestButton,
-  CheckoutProductList, CheckoutSummary,
+  CheckoutOrderConfirmation,
+  CheckoutPaymentRequestButton,
+  CheckoutProductList,
+  CheckoutSummary,
   ModularCheckout,
   ProductPage,
   ProductTile,
 } from '@tipser/tipser-elements/dist/all';
 
-import './express-payment-standalone.scss'
+import './express-payment-standalone.scss';
 
 const DEFAULT_PRODUCT_ID = '60479d1fdb3410ad13e27fab';
 
@@ -24,9 +26,7 @@ const Home = () => {
 };
 const ProductSubpage = () => {
   const { productId } = useParams<{ productId: string }>();
-  return (
-    <ProductPage productId={productId} />
-  );
+  return <ProductPage productId={productId} />;
 };
 
 const ConfirmationSubpage = () => (
@@ -63,8 +63,6 @@ export const ExpressPaymentStandalone: FC = () => {
         <Route path={`${url}/confirmation`} component={ConfirmationSubpage} />
         <Route path={`${url}/:productId?`} exact component={Home} />
       </Switch>
-
     </div>
   );
 };
-
